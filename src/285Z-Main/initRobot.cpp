@@ -8,13 +8,13 @@ Motor br           (4, true,  AbstractMotor::gearset::green);
 ChassisControllerIntegrated drive = ChassisControllerFactory::create
 (
   {1, 2},
-  {-3, -11},
+  {-3, -4},
   AbstractMotor::gearset::green,
   {4_in, 9.78_in}
 );
 
 MotorGroup driveL = MotorGroup({1, 2});
-MotorGroup driveR = MotorGroup({-3, -11});
+MotorGroup driveR = MotorGroup({-3, -4});
 
 // auto scrapePID = AsyncControllerFactory::posPID
 // (

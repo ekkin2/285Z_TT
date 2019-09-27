@@ -8,7 +8,7 @@ Motor br           (4, true,  AbstractMotor::gearset::green);
 ChassisControllerIntegrated drive = ChassisControllerFactory::create
 (
   {1, 2},
-  {-3, -11},
+  {-3, -4},
   AbstractMotor::gearset::green,
   {4_in, 9.78_in}
 );

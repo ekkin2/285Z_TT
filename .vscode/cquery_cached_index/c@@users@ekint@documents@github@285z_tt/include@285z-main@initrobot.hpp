@@ -1,3 +1,4 @@
+//Where the things are declared
 #pragma once
 #include "../main.h"
 
@@ -15,12 +16,14 @@
 
 #define ONLINE 1
 
+/*
 extern ControllerButton btnShoot;
 extern ControllerButton btnBallIntake;
 extern ControllerButton btnReverseBallSystem;
 extern ControllerButton btnDoubleShot;
 
 extern ControllerButton btnLUsager;
+*/
 
 extern ControllerButton btnLazyMode;
 
@@ -31,35 +34,20 @@ extern MotorGroup driveR;
 extern ChassisControllerIntegrated aut;
 extern AsyncMotionProfileController profile;
 
-extern Motor ballIntake;
-extern Motor ballIndexer;
-extern Motor flywheel;
-extern Motor l;
-
 extern Motor fl;
 extern Motor bl;
 extern Motor fr;
 extern Motor br;
 
 // Opertion Control Declarations //
-extern bool intakeStyleToggle;
-extern bool ballIntakeToggle;
 extern bool driveStyleToggle;
-extern bool doubleShot;
-extern bool lUsage;
 extern bool lazy;
-
-void lControl          ();
-void intakeStyle       ();
-void ballControl       ();
-void doubleShotControl ();
-void flywheelControl();
 
 void lazyMode ();
 
 void doArcade ();
 void doTank   ();
-void driveStyle();
+void driveStyle(int style);
 
 void lControlTask (void*);
 
@@ -67,5 +55,4 @@ void lControlTask (void*);
 
 extern bool number;
 
-void shoot (bool number);
 void turn  (QAngle degrees, float rpm);
