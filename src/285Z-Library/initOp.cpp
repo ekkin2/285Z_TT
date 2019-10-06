@@ -5,19 +5,14 @@ Controller joystick;
 
 Timer timer;
 
-/*
-This is where we initialize the specific buttons
-ControllerButton btnShoot												(ControllerDigital::R1);
-ControllerButton btnBallIntake									(ControllerDigital::R2);
-ControllerButton btnReverseBall       					(ControllerDigital::A);
-ControllerButton btnDoubleShot                  (ControllerDigital::X );
-ControllerButton btnReverseSystem               (ControllerDigital::Y);
+//This is where we initialize the specific buttons
+ControllerButton btnVert(ControllerDigital::R1); //Make stack vertical
+ControllerButton btnAngle(ControllerDigital::R2); //Make stack angled
+ControllerButton btnIntake(ControllerDigital::A); //Start Intake
+ControllerButton btnReverseSystem(ControllerDigital::Y); //Reverse Drive
 
-ControllerButton btnHoodToggle                  (ControllerDigital::L2);
-ControllerButton btnLUsager                     (ControllerDigital::L1);         //> 'L' refers to the robot's arm which was in the shape of an 'L' in its early days
+ControllerButton btnLazyMode(ControllerDigital::up);
 
-ControllerButton btnLazyMode										(ControllerDigital::up);
-*/
 bool driveStyleToggle   {TANK};
 bool lazy               {false};
 
