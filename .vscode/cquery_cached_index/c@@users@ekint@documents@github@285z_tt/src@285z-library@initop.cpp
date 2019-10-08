@@ -5,9 +5,18 @@ Controller joystick;
 
 Timer timer;
 
+//PID Controller
+const double liftkP = 0.001;
+const double liftkI = 0.0001;
+const double liftkD = 0.0001;
+
+//TODO: WILL HAVE TO MODIFY WHEN WE HAVE TWO MOTORS FOR ANGLER
+const int ANGLER_MOTOR_PORT = 7;
+
+auto anglerController = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT, liftkP, liftkI, liftkD);
 //This is where we initialize the specific buttons
-ControllerButton btnVert(ControllerDigital::L1); //Make stack vertical
-ControllerButton btnAngle(ControllerDigital::L2); //Make stack angled
+ControllerButton btnVert(ControllerDigital::L2); //Make stack vertical
+ControllerButton btnAngle(ControllerDigital::L1); //Make stack angled
 ControllerButton btnIntake(ControllerDigital::R2); //Start Intake
 
 ControllerButton btnLazyMode(ControllerDigital::up);
@@ -22,18 +31,20 @@ void liftVert() {
   //-1690 degrees
   //TODO: Change angler1 to angler when there are two motors
   joystick.setText(0, 0, std::to_string(angler1.getPosition()));
-  if (btnAngle.changedToPressed())
+  if (btnVert.changedToPressed())
   {
-    liftUp = true;
-  }
-  else if (liftUp)
-  {
-    angler1.moveAbsolute(-1690, 100);
+    anglerController.setTarget(-1690);
   }
 }
 
 void lowerFlat(){
-
+  //TODO: Change angler1 to angler when there are two motors
+  joystick.setText(0, 0, std::to_string(angler1.getPosition()));
+  if (btnAngle.changedToPressed())
+  {
+    anglerController.setTarget(0);
+    //angler1.moveAbsolute(0, 100);
+  }
 }
 
 

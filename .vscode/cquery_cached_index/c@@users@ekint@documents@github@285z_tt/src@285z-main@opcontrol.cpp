@@ -20,8 +20,8 @@ void opcontrol() {
 		driveStyle(TANK);
 
 		liftVert();
+		lowerFlat();
 		intakeToggle();
 		pros::delay(10);
-
 	}
 }

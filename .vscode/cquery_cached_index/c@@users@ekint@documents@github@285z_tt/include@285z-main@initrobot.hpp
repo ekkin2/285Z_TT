@@ -16,6 +16,7 @@
 
 #define ONLINE 1
 
+//extern auto anglerController;
 extern ControllerButton btnLazyMode;
 extern ControllerButton btnVert; //Make stack vertical
 extern ControllerButton btnAngle; //Make stack angled
