@@ -18,6 +18,9 @@ void opcontrol() {
 
 	while (ONLINE) {
 		driveStyle(TANK);
+
+		intakeToggle();
 		pros::delay(10);
+
 	}
 }

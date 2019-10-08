@@ -6,15 +6,40 @@ Controller joystick;
 Timer timer;
 
 //This is where we initialize the specific buttons
-ControllerButton btnVert(ControllerDigital::R1); //Make stack vertical
-ControllerButton btnAngle(ControllerDigital::R2); //Make stack angled
-ControllerButton btnIntake(ControllerDigital::A); //Start Intake
-ControllerButton btnReverseSystem(ControllerDigital::Y); //Reverse Drive
+ControllerButton btnVert(ControllerDigital::L1); //Make stack vertical
+ControllerButton btnAngle(ControllerDigital::L2); //Make stack angled
+ControllerButton btnIntake(ControllerDigital::R2); //Start Intake
 
 ControllerButton btnLazyMode(ControllerDigital::up);
 
+//BOOLEANS FOR TOGGLE
 bool driveStyleToggle   {TANK};
+bool intakeToggleBool   {true};
 bool lazy               {false};
+
+void liftVert() {
+  //-1690 degrees
+}
+
+void lowerFlat(){
+
+}
+
+void intakeToggle ()
+{
+    if (btnIntake.changedToPressed())
+    {
+      intakeToggleBool = !intakeToggleBool;
+    }
+    else if(intakeToggleBool)
+    {
+      intake.moveVelocity   (600);
+    }
+    else
+    {
+      intake.moveVelocity	(0);
+    }
+}
 
 void lazyMode ()
 {

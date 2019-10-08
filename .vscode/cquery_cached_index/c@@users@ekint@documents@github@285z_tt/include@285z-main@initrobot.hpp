@@ -16,16 +16,11 @@
 
 #define ONLINE 1
 
-/*
-extern ControllerButton btnShoot;
-extern ControllerButton btnBallIntake;
-extern ControllerButton btnReverseBallSystem;
-extern ControllerButton btnDoubleShot;
-
-extern ControllerButton btnLUsager;
-*/
-
 extern ControllerButton btnLazyMode;
+extern ControllerButton btnVert; //Make stack vertical
+extern ControllerButton btnAngle; //Make stack angled
+extern ControllerButton btnIntake; //Start Intake
+
 
 extern ChassisControllerIntegrated drive;
 extern MotorGroup driveL;
@@ -39,11 +34,27 @@ extern Motor bl;
 extern Motor fr;
 extern Motor br;
 
+extern Motor intakeL;
+extern Motor intakeR;
+
+extern Motor angler1;
+extern Motor angler2;
+
+extern MotorGroup intake;
+extern MotorGroup angler;
+
 // Opertion Control Declarations //
 extern bool driveStyleToggle;
+extern bool intakeToggleBool;
 extern bool lazy;
 
 void lazyMode ();
+
+// TELEOP DECLARATIONS //
+void intakeToggle();
+
+void liftVert();
+void lowerFlat();
 
 void doArcade ();
 void doTank   ();
