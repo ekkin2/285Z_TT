@@ -46,6 +46,7 @@ extern MotorGroup angler;
 // Opertion Control Declarations //
 extern bool driveStyleToggle;
 extern bool intakeToggleBool;
+extern bool liftUp;
 extern bool lazy;
 
 void lazyMode ();

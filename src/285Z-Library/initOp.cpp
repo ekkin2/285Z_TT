@@ -14,16 +14,28 @@ ControllerButton btnLazyMode(ControllerDigital::up);
 
 //BOOLEANS FOR TOGGLE
 bool driveStyleToggle   {TANK};
-bool intakeToggleBool   {true};
+bool intakeToggleBool   {false};
+bool liftUp             {false};
 bool lazy               {false};
 
 void liftVert() {
   //-1690 degrees
+  //TODO: Change angler1 to angler when there are two motors
+  joystick.setText(0, 0, std::to_string(angler1.getPosition()));
+  if (btnAngle.changedToPressed())
+  {
+    liftUp = true;
+  }
+  else if (liftUp)
+  {
+    angler1.moveAbsolute(-1690, 100);
+  }
 }
 
 void lowerFlat(){
 
 }
+
 
 void intakeToggle ()
 {
