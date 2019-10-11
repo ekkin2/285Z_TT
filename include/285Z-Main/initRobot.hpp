@@ -21,7 +21,7 @@ extern ControllerButton btnLazyMode;
 extern ControllerButton btnVert; //Make stack vertical
 extern ControllerButton btnAngle; //Make stack angled
 extern ControllerButton btnIntake; //Start Intake
-
+extern ControllerButton btnIntakeRev;
 
 extern ChassisControllerIntegrated drive;
 extern MotorGroup driveL;
