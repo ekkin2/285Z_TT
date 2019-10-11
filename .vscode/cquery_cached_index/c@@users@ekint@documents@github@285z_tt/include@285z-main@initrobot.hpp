@@ -54,6 +54,7 @@ void lazyMode ();
 
 // TELEOP DECLARATIONS //
 void intakeToggle();
+void intakeRev();
 
 void liftVert();
 void lowerFlat();

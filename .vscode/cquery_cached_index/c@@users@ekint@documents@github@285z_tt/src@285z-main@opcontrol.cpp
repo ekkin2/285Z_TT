@@ -17,11 +17,18 @@ void opcontrol() {
 
 
 	while (ONLINE) {
+
+		//  DRIVE FUNCTIONS  //
 		driveStyle(TANK);
 
+		//  ANGLER FUNCTIONS //
 		liftVert();
 		lowerFlat();
+
+		// INTAKE FUNCTIONS //
 		intakeToggle();
+		intakeRev();
+
 		pros::delay(10);
 	}
 }

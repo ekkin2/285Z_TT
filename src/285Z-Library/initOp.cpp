@@ -18,7 +18,7 @@ auto anglerController = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT, liftkP
 ControllerButton btnVert(ControllerDigital::L2); //Make stack vertical
 ControllerButton btnAngle(ControllerDigital::L1); //Make stack angled
 ControllerButton btnIntake(ControllerDigital::R2); //Start Intake
-
+ControllerButton btnIntakeRev(ControllerDigital::R1);
 ControllerButton btnLazyMode(ControllerDigital::up);
 
 //BOOLEANS FOR TOGGLE
@@ -48,6 +48,7 @@ void lowerFlat(){
 }
 
 
+//  INTAKE FUNCTIONS //
 void intakeToggle ()
 {
     if (btnIntake.changedToPressed())
@@ -64,6 +65,15 @@ void intakeToggle ()
     }
 }
 
+void intakeRev()
+{
+  if (btnIntakeRev.isPressed())
+  {
+    intake.moveVelocity (-100);
+  }
+}
+
+//  DRIVE FUNCTIONS //
 void lazyMode ()
 {
   drive.stop();
