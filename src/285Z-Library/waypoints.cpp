@@ -113,16 +113,29 @@ Point cRed                             //> Cap Flip
 
 
 //new tower takeover points
-//TOP LEFT IS ORIGIN
 
 Point startRedTT{
   0_ft,
-  9.9_ft,
+  2.0_ft,
   0_deg
 };
 
 Point startBlueTT{
   12_ft,
-  9.9_ft,
+  2.0_ft,
   180_deg
+};
+
+//RED POINTS
+
+Point redblocksFirstSet{
+  2.5_ft,
+  2_ft,
+  0_deg
+};
+
+Point postSquiggle{
+  0.25_ft,
+  4.0_ft,
+  0_deg
 };

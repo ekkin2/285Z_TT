@@ -15,6 +15,7 @@ void opcontrol() {
 		// INTAKE FUNCTIONS //
 		intakeToggle();
 		intakeRev();
+
 		pros::delay(10);
 	}
 }
