@@ -41,7 +41,10 @@ void redAut(){
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   //need to work out deceleration program
+<<<<<<< HEAD
   //sqiggle backwards to line up with second row
+=======
+>>>>>>> 66020d5c6b5ce6275a4352365170afd500887f81
   profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
   profile.setTarget("squiggle", bwd);
   profile.waitUntilSettled();
@@ -66,12 +69,20 @@ void redAut(){
 void turnTest(){
 
   turn(135_deg, 50);
+<<<<<<< HEAD
 
 }
 
 void liftTest(){
 
   liftVert();
+=======
+  intakeSpeed(0);
+  profile.generatePath({redblocksFirstSet, postSquiggle}, "squiggle");
+  profile.setTarget("squiggle", bwd);
+  profile.waitUntilSettled();
+
+>>>>>>> 66020d5c6b5ce6275a4352365170afd500887f81
 
 }
 //^ included

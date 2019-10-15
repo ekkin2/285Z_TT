@@ -41,6 +41,26 @@ void redAut(){
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   //need to work out deceleration program
+  profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
+  profile.setTarget("squiggle", bwd);
+  profile.waitUntilSettled();
+
+  profile.generatePath({ Point{1_ft, 5.9_ft, 0_deg}, Point{4_ft, 5.9_ft, 0_deg}}, "Blocks2");
+  profile.setTarget("Blocks2", fwd);
+  profile.waitUntilSettled();
+
+  turn(135_deg, 50);
+
+  profile.generatePath({ Point{1_ft, 5.9_ft, -45_deg}, Point{2_ft, 10_ft, -45_deg}}, "GoToStack");
+  profile.setTarget("GoToStack", fwd);
+  profile.waitUntilSettled();
+
+
+}
+
+void turnTest(){
+
+  turn(135_deg, 50);
   intakeSpeed(0);
   profile.generatePath({redblocksFirstSet, postSquiggle}, "squiggle");
   profile.setTarget("squiggle", bwd);
