@@ -139,3 +139,15 @@ Point postSquiggle{
   5.9_ft,
   0_deg
 };
+
+Point pickUpSecondStack{
+  4_ft,
+  5.9_ft,
+   0_deg
+ };
+
+ Point maybeGoBack{
+   2_ft,
+   10_ft,
+   -45_deg
+ };
