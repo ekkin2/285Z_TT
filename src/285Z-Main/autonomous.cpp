@@ -35,14 +35,18 @@ void redAut(){
   //NOTE: Robot Width = 10"
 
   //Intake On
-  intake.moveVelocity(-400);
-
+  intakeSpeed(400);
   //Move to blocks
   profile.generatePath({startRedTT, Point{4_ft, 9.9_ft, 0_deg}}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   //need to work out deceleration program
+<<<<<<< HEAD
   profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
+=======
+  intakeSpeed(0);
+  profile.generatePath({Point{2.5_ft, 2.0_ft, 0_deg}, Point{0.25_ft, 4.0_ft, 0_deg}}, "squiggle");
+>>>>>>> 09ed5a46d8eba2620d2e6c493d1155d283462977
   profile.setTarget("squiggle", bwd);
   profile.waitUntilSettled();
 

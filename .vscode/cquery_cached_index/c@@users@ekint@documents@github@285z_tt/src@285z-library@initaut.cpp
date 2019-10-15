@@ -15,6 +15,16 @@ AsyncMotionProfileController profile = AsyncControllerFactory::motionProfile
    5.0,
    aut
 );
+//intake function for autonomous
+//intakeSpeed(integer speed value)
+void intakeSpeed(int x) {
+  intake.moveVelocity(x*-1);
+  if(x == 0){
+    intake.setBrakeMode(AbstractMotor::brakeMode::hold);
+  }
+};
+
+void
 
 void turn (QAngle degrees, float rpm)
 {
