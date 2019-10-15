@@ -30,7 +30,21 @@ void testAut() {
 }
 
 void redAut(){
-  profile.generatePath({startRedTT, Point{1_ft, 2_ft, 45_deg}}, "Blocks1");
+
+  //NOTE: Robot Length = 11"
+  //NOTE: Robot Width = 10"
+
+  //Intake On
+  intake.moveVelocity(400);
+
+  //Move to blocks
+  profile.generatePath({startRedTT, Point{2.5_ft, 2_ft, 0_deg}}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
+  //need to work out deceleration program
+  profile.generatePath({Point{2.5_ft, 2.0_ft, 0_deg}, Point{0.25_ft, 4.0_ft, 0_deg}}, "squiggle");
+  profile.setTarget("squiggle", bwd);
+  profile.waitUntilSettled();
 }
 //^ included
   /*
@@ -67,5 +81,5 @@ void redAut(){
 
 
 void autonomous() {
-  testAut();
+  redAut();
 }
