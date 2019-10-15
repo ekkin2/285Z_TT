@@ -72,3 +72,4 @@ extern bool number;
 void turn  (QAngle degrees, float rpm);
 void testAut();
 void redAut();
+void intakeSpeed(int x);
