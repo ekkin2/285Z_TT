@@ -116,13 +116,13 @@ Point cRed                             //> Cap Flip
 
 Point startRedTT{
   0_ft,
-  2.0_ft,
+  9.9_ft,
   0_deg
 };
 
 Point startBlueTT{
   12_ft,
-  2.0_ft,
+  9.9_ft,
   180_deg
 };
 
