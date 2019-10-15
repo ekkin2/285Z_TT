@@ -76,7 +76,7 @@ void blueAut(){
     profile.waitUntilSettled();
     //need to work out deceleration program
     //sqiggle backwards to line up with second row
-    profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
+    profile.generatePath({redblocksFirstSet, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
     profile.setTarget("squiggle", bwd);
     profile.waitUntilSettled();
     //intake second batch of blocks
