@@ -19,3 +19,7 @@ extern Point lBlue;
 extern Point cppRed;
 extern Point cpRed;
 extern Point cRed;
+
+//new points
+extern Point startRedTT;
+extern Point startBlueTT;

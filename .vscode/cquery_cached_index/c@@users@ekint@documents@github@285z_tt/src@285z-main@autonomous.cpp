@@ -27,7 +27,30 @@ void testAut() {
   profile.waitUntilSettled();
   profile.removePath("Ball");
   turn(-48_deg,50);
+}
 
+void redAut(){
+
+  //NOTE: Robot Length = 11"
+  //NOTE: Robot Width = 10"
+
+  //Intake On
+  intake.moveVelocity(-400);
+
+  //Move to blocks
+  profile.generatePath({startRedTT, Point{4_ft, 9.9_ft, 0_deg}}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
+  //need to work out deceleration program
+  profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
+  profile.setTarget("squiggle", bwd);
+  profile.waitUntilSettled();
+
+  profile.generatePath({ Point{1_ft, 5.9_ft, 0_deg}, Point{4_ft, 5.9_ft, 0_deg}}, "Blocks2");
+  profile.setTarget("Blocks2", fwd);
+  profile.waitUntilSettled();
+}
+//^ included
   /*
   profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.5_ft, 8.5_ft, 45_deg}}, "Cap Scrape"); //goes forward to cap to scrape
   profile.setTarget("Cap Scrape");
@@ -59,8 +82,8 @@ void testAut() {
   profile.generatePath({Point{1_ft, 9_ft, 0_deg}, Point{5.2_ft, 11_ft, 90_deg}}, "Middle Low Flag P2");
   profile.setTarget("Middle Low Flag P2");
   profile.waitUntilSettled(); */
-}
+
 
 void autonomous() {
-  testAut();
+  redAut();
 }
