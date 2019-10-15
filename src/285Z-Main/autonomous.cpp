@@ -35,7 +35,7 @@ void redAut(){
   //NOTE: Robot Width = 10"
 
   //Intake On
-  intake.moveVelocity(400);
+  intake.moveVelocity(-400);
 
   //Move to blocks
   profile.generatePath({startRedTT, Point{2.5_ft, 2_ft, 0_deg}}, "Blocks1");
