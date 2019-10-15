@@ -69,4 +69,15 @@ void lControlTask (void*);
 
 extern bool number;
 
+//  Auton Drive  //
 void turn  (QAngle degrees, float rpm);
+
+//  Angler //
+void liftVert();
+
+// Intakes //
+void intakeSpeed(int x);
+
+// Autons //
+void testAut();
+void redAut();

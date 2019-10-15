@@ -27,7 +27,6 @@ void testAut() {
   profile.waitUntilSettled();
   profile.removePath("Ball");
   turn(-48_deg,50);
-<<<<<<< HEAD
 }
 
 void redAut(){
@@ -38,24 +37,29 @@ void redAut(){
   //Intake On
   intakeSpeed(400);
   //Move to blocks
-  profile.generatePath({startRedTT, Point{4_ft, 9.9_ft, 0_deg}}, "Blocks1");
+  profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   //need to work out deceleration program
+  //sqiggle backwards to line up with second row
   profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
   profile.setTarget("squiggle", bwd);
   profile.waitUntilSettled();
-
+  //intake second batch of blocks
   profile.generatePath({ Point{1_ft, 5.9_ft, 0_deg}, Point{4_ft, 5.9_ft, 0_deg}}, "Blocks2");
   profile.setTarget("Blocks2", fwd);
   profile.waitUntilSettled();
-
+  //turn towards goal
   turn(135_deg, 50);
-
+  //go towards goal
   profile.generatePath({ Point{1_ft, 5.9_ft, -45_deg}, Point{2_ft, 10_ft, -45_deg}}, "GoToStack");
   profile.setTarget("GoToStack", fwd);
   profile.waitUntilSettled();
-
+  //Raise lift upwards
+  liftVert();
+  //Move backwards slowly
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-100);
 
 }
 
@@ -64,10 +68,13 @@ void turnTest(){
   turn(135_deg, 50);
 
 }
-//^ included
-=======
 
->>>>>>> c1e5d864d97ea940a68e9d5a2b84255ceb69961e
+void liftTest(){
+
+  liftVert();
+
+}
+//^ included
   /*
   profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.5_ft, 8.5_ft, 45_deg}}, "Cap Scrape"); //goes forward to cap to scrape
   profile.setTarget("Cap Scrape");
@@ -99,15 +106,8 @@ void turnTest(){
   profile.generatePath({Point{1_ft, 9_ft, 0_deg}, Point{5.2_ft, 11_ft, 90_deg}}, "Middle Low Flag P2");
   profile.setTarget("Middle Low Flag P2");
   profile.waitUntilSettled(); */
-<<<<<<< HEAD
 
 
 void autonomous() {
   redAut();
-=======
-}
-
-void autonomous() {
-  testAut();
->>>>>>> c1e5d864d97ea940a68e9d5a2b84255ceb69961e
 }

@@ -19,3 +19,10 @@ extern Point lBlue;
 extern Point cppRed;
 extern Point cpRed;
 extern Point cRed;
+
+//FIRST COMPETITION WAY POINTS
+extern Point startRedTT;
+extern Point startBlueTT;
+//RED ONLY
+extern Point redblocksFirstSet;
+extern Point postSquiggle;
