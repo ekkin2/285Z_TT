@@ -27,7 +27,12 @@ void testAut() {
   profile.waitUntilSettled();
   profile.removePath("Ball");
   turn(-48_deg,50);
+}
 
+void redAut(){
+  profile.generatePath({startRedTT, Point{1_ft, 2_ft, 45_deg}}, "Blocks1");
+}
+//^ included
   /*
   profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.5_ft, 8.5_ft, 45_deg}}, "Cap Scrape"); //goes forward to cap to scrape
   profile.setTarget("Cap Scrape");
@@ -59,7 +64,7 @@ void testAut() {
   profile.generatePath({Point{1_ft, 9_ft, 0_deg}, Point{5.2_ft, 11_ft, 90_deg}}, "Middle Low Flag P2");
   profile.setTarget("Middle Low Flag P2");
   profile.waitUntilSettled(); */
-}
+
 
 void autonomous() {
   testAut();

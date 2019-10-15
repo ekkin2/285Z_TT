@@ -70,3 +70,5 @@ void lControlTask (void*);
 extern bool number;
 
 void turn  (QAngle degrees, float rpm);
+void testAut();
+void redAut();

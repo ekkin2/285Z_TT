@@ -110,3 +110,18 @@ Point cRed                             //> Cap Flip
   9.0_ft,
   0.0_deg
 };
+
+
+//new tower takeover points
+
+Point startRedTT{
+  0_ft,
+  2.0_ft,
+  0_deg
+};
+
+Point startBlueTT{
+  12_ft,
+  2.0_ft,
+  180_deg
+};
