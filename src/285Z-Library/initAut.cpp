@@ -22,11 +22,9 @@ const double liftkI = 0.0001;
 const double liftkD = 0.0001;
 
 //TODO: WILL HAVE TO MODIFY WHEN WE HAVE TWO MOTORS FOR ANGLER
-const int ANGLER_MOTOR_PORT_L = 17;
-const int ANGLER_MOTOR_PORT_R = 18;
 
-auto anglerControllerL = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT_L, liftkP, liftkI, liftkD);
-auto anglerControllerR = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT_R, liftkP, liftkI, liftkD);
+auto anglerControllerLAut = AsyncControllerFactory::posPID(17, liftkP, liftkI, liftkD);
+auto anglerControllerRAut = AsyncControllerFactory::posPID(18, liftkP, liftkI, liftkD);
 
 //intake function for autonomous
 //intakeSpeed(integer speed value)
@@ -38,9 +36,9 @@ void intakeSpeed(int x) {
 };
 
 //lift function
-void liftVert(){
-  anglerControllerL.setTarget(1690);
-  anglerControllerR.setTarget(1690);
+void liftVertAut(){
+  anglerControllerLAut.setTarget(1690);
+  anglerControllerRAut.setTarget(1690);
 }
 
 void turn (QAngle degrees, float rpm)
