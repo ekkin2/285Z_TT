@@ -37,16 +37,21 @@ void redSimple(){
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   profile.removePath("Blocks1");
-  intakeSpeed(-20);
+  intakeSpeed(0);
   //back up
   profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
   profile.setTarget("Back", bwd);
   profile.waitUntilSettled();
+
+  intakeSpeed(-5);
   //need to work out deceleration program
   //sqiggle backwards to line up with second row
-  turn(110_deg, 60);
-  aut.setMaxVelocity(60);
-  aut.moveDistance(300);
+
+
+  turn(180_deg, 100);
+
+  aut.setMaxVelocity(150);
+  aut.moveDistance(500);
 
   liftVert();
   pros::Task::delay(200);
@@ -173,5 +178,5 @@ void liftTest(){
 
 
 void autonomous() {
-  turnTest();
+  redSimple();
 }
