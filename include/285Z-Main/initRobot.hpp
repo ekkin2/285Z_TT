@@ -81,3 +81,4 @@ void intakeSpeed(int x);
 // Autons //
 void testAut();
 void redAut();
+void redSimple();

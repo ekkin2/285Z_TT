@@ -29,6 +29,31 @@ void testAut() {
   turn(-48_deg,50);
 }
 
+void redSimple(){
+  intakeSpeed(400);
+  aut.setMaxVelocity(150);
+  //Move to blocks
+  profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
+  profile.removePath("Blocks1");
+  //back up
+  profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  profile.setTarget("Back", bwd);
+  profile.waitUntilSettled();
+  //need to work out deceleration program
+  //sqiggle backwards to line up with second row
+  turn(110_deg, 60);
+  aut.setMaxVelocity(60);
+  aut.moveDistance(300);
+
+  liftVert();
+  pros::Task::delay(200);
+  //Move backwards slowly
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-100);
+}
+
 void redAut(){
 
   //NOTE: Robot Length = 11"
@@ -149,5 +174,5 @@ void liftTest(){
 
 
 void autonomous() {
-  redAut();
+  redSimple();
 }

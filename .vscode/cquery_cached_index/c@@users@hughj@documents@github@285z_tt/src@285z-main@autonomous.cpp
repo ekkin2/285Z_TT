@@ -29,6 +29,31 @@ void testAut() {
   turn(-48_deg,50);
 }
 
+void redSimple(){
+  intakeSpeed(400);
+  aut.setMaxVelocity(150);
+  //Move to blocks
+  profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
+  profile.removePath("Blocks1");
+  //back up
+  profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  profile.setTarget("Back", bwd);
+  profile.waitUntilSettled();
+  //need to work out deceleration program
+  //sqiggle backwards to line up with second row
+  turn(110_deg, 60);
+  aut.setMaxVelocity(60);
+  aut.moveDistance(300);
+
+  liftVert();
+  pros::Task::delay(200);
+  //Move backwards slowly
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-100);
+}
+
 void redAut(){
 
   //NOTE: Robot Length = 11"
@@ -36,23 +61,30 @@ void redAut(){
 
   //Intake On
   intakeSpeed(400);
+  aut.setMaxVelocity(150);
   //Move to blocks
-  profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
+  profile.generatePath({startRedTT, Point{5_ft, 9.9_ft, 0_deg}}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
+
   //need to work out deceleration program
   //sqiggle backwards to line up with second row
-  profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
+  turn(30_deg, 60);
+  aut.moveDistance(-1300);
+  //turn(-15_deg, 60);
+  /*
+  profile.generatePath({Point{4.5_ft, 9.9_ft, 0_deg}, Point{1.5_ft, 4_ft, 0_deg}}, "squiggle");
   profile.setTarget("squiggle", bwd);
   profile.waitUntilSettled();
+  */
   //intake second batch of blocks
-  profile.generatePath({ Point{1_ft, 5.9_ft, 0_deg}, Point{4_ft, 5.9_ft, 0_deg}}, "Blocks2");
+  profile.generatePath({ Point{1.5_ft, 4_ft, 0_deg}, Point{4_ft, 4_ft, 0_deg}}, "Blocks2");
   profile.setTarget("Blocks2", fwd);
   profile.waitUntilSettled();
   //turn towards goal
   turn(135_deg, 50);
   //go towards goal
-  profile.generatePath({ Point{1_ft, 5.9_ft, -45_deg}, Point{2_ft, 10_ft, -45_deg}}, "GoToStack");
+  profile.generatePath({ Point{4_ft, 4_ft, -45_deg}, Point{2_ft, 10_ft, -45_deg}}, "GoToStack");
   profile.setTarget("GoToStack", fwd);
   profile.waitUntilSettled();
   //Raise lift upwards
@@ -61,6 +93,39 @@ void redAut(){
   aut.setMaxVelocity(50);
   aut.moveDistance(-100);
 
+}
+
+void blueAut(){
+
+    //NOTE: Robot Length = 11"
+    //NOTE: Robot Width = 10"
+
+    //Intake On
+    intakeSpeed(400);
+    //Move to blocks
+    profile.generatePath({startBlueTT, Point{8_ft, 9.9_ft, 180_deg}}, "Blocks1");
+    profile.setTarget("Blocks1", fwd);
+    profile.waitUntilSettled();
+    //need to work out deceleration program
+    //sqiggle backwards to line up with second row
+    profile.generatePath({Point{8_ft, 9.9_ft, 180_deg}, Point{1_ft, 5.9_ft, 180_deg}}, "squiggle");
+    profile.setTarget("squiggle", bwd);
+    profile.waitUntilSettled();
+    //intake second batch of blocks
+    profile.generatePath({ Point{1_ft, 5.9_ft, 180_deg}, Point{8_ft, 5.9_ft, 180_deg}}, "Blocks2");
+    profile.setTarget("Blocks2", fwd);
+    profile.waitUntilSettled();
+    //turn towards goal
+    turn(-135_deg, 50);
+    //go towards goal
+    profile.generatePath({ Point{8_ft, 5.9_ft, -45_deg}, Point{10_ft, 10_ft, -45_deg}}, "GoToStack");
+    profile.setTarget("GoToStack", fwd);
+    profile.waitUntilSettled();
+    //Raise lift upwards
+    liftVertAut();
+    //Move backwards slowly
+    aut.setMaxVelocity(50);
+    aut.moveDistance(-100);
 }
 
 void turnTest(){
@@ -72,12 +137,6 @@ void turnTest(){
 void liftTest(){
 
   liftVert();
-
-  intakeSpeed(0);
-  profile.generatePath({redblocksFirstSet, postSquiggle}, "squiggle");
-  profile.setTarget("squiggle", bwd);
-  profile.waitUntilSettled();
-
 
 }
 //^ included
@@ -115,5 +174,5 @@ void liftTest(){
 
 
 void autonomous() {
-  redAut();
+  redSimple();
 }

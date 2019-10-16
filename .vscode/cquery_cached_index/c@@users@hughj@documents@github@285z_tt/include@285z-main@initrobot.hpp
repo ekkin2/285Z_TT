@@ -73,7 +73,7 @@ extern bool number;
 void turn  (QAngle degrees, float rpm);
 
 //  Angler //
-void liftVert();
+void liftVertAut();
 
 // Intakes //
 void intakeSpeed(int x);
@@ -81,3 +81,4 @@ void intakeSpeed(int x);
 // Autons //
 void testAut();
 void redAut();
+void redSimple();
