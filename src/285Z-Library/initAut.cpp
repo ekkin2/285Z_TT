@@ -5,7 +5,7 @@ ChassisControllerIntegrated aut = ChassisControllerFactory::create
   {11, 12},
   {-13, -14},
   AbstractMotor::gearset::green,
-  {4_in, 10_in}
+  {4.125_in, 11_in}
 );
 
 AsyncMotionProfileController profile = AsyncControllerFactory::motionProfile

@@ -37,6 +37,7 @@ void redSimple(){
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   profile.removePath("Blocks1");
+  intakeSpeed(-20);
   //back up
   profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
   profile.setTarget("Back", bwd);
@@ -54,6 +55,9 @@ void redSimple(){
   aut.moveDistance(-100);
 }
 
+void turnTest(){
+  turn(90_deg, 60);
+}
 void redAut(){
 
   //NOTE: Robot Length = 11"
@@ -128,11 +132,6 @@ void blueAut(){
     aut.moveDistance(-100);
 }
 
-void turnTest(){
-
-  turn(135_deg, 50);
-
-}
 
 void liftTest(){
 
@@ -174,5 +173,5 @@ void liftTest(){
 
 
 void autonomous() {
-  redSimple();
+  turnTest();
 }
