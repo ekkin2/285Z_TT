@@ -15,7 +15,7 @@
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
             "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
-            "-iquote./include/285Z-Main/",
+            "-iquote./include/285Z-Library/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -28,11 +28,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/hughj/AppData/Local/Temp/tmpe44bov0v/285Z-Main/opcontrol.cpp.o",
-            "src\\285Z-Main\\opcontrol.cpp"
+            "C:/Users/hughj/AppData/Local/Temp/tmpk909pbps/285Z-Library/initAut.cpp.o",
+            "src\\285Z-Library\\initAut.cpp"
         ],
         "directory": "C:\\Users\\hughj\\Documents\\GitHub\\285Z_TT",
-        "file": "src\\285Z-Main\\opcontrol.cpp"
+        "file": "src\\285Z-Library\\initAut.cpp"
     },
     {
         "arguments": [
@@ -63,7 +63,7 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/hughj/AppData/Local/Temp/tmpe44bov0v/285Z-Main/initRobot.cpp.o",
+            "C:/Users/hughj/AppData/Local/Temp/tmpk909pbps/285Z-Main/initRobot.cpp.o",
             "src\\285Z-Main\\initRobot.cpp"
         ],
         "directory": "C:\\Users\\hughj\\Documents\\GitHub\\285Z_TT",
@@ -98,11 +98,46 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/hughj/AppData/Local/Temp/tmpe44bov0v/285Z-Library/initOp.cpp.o",
+            "C:/Users/hughj/AppData/Local/Temp/tmpk909pbps/285Z-Library/initOp.cpp.o",
             "src\\285Z-Library\\initOp.cpp"
         ],
         "directory": "C:\\Users\\hughj\\Documents\\GitHub\\285Z_TT",
         "file": "src\\285Z-Library\\initOp.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
+            "-iquote./include/285Z-Main/",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "C:/Users/hughj/AppData/Local/Temp/tmpk909pbps/285Z-Main/opcontrol.cpp.o",
+            "src\\285Z-Main\\opcontrol.cpp"
+        ],
+        "directory": "C:\\Users\\hughj\\Documents\\GitHub\\285Z_TT",
+        "file": "src\\285Z-Main\\opcontrol.cpp"
     },
     {
         "arguments": [
@@ -138,41 +173,6 @@
         ],
         "directory": "C:\\Users\\hughj\\Documents\\GitHub\\285Z_TT",
         "file": "src\\285Z-Library\\waypoints.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-fno-ms-extensions",
-            "-fno-ms-compatibility",
-            "-fno-delayed-template-parsing",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/285Z-Library/",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
-            "bin/285Z-Library/initAut.cpp.o",
-            "src\\285Z-Library\\initAut.cpp"
-        ],
-        "directory": "C:\\Users\\hughj\\Documents\\GitHub\\285Z_TT",
-        "file": "src\\285Z-Library\\initAut.cpp"
     },
     {
         "arguments": [

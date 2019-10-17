@@ -30,25 +30,26 @@ void testAut() {
 }
 
 void redSimple(){
-  intakeSpeed(400);
-  aut.setMaxVelocity(150);
+  //intakeSpeed(400);
+  aut.setMaxVelocity(100);
   //Move to blocks
   profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   profile.removePath("Blocks1");
-  intakeSpeed(0);
+  //intakeSpeed(0);
   //back up
-  profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+
+  aut.moveDistance(-500);
+  /*profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
   profile.setTarget("Back", bwd);
   profile.waitUntilSettled();
+  profile.removePath("Back");*/
 
   intakeSpeed(-5);
   //need to work out deceleration program
   //sqiggle backwards to line up with second row
-
-
-  turn(180_deg, 100);
+  turn(180_deg, 60);
 
   aut.setMaxVelocity(150);
   aut.moveDistance(500);
@@ -61,7 +62,12 @@ void redSimple(){
 }
 
 void turnTest(){
+
+  profile.generatePath({startRedTT, Point{5_ft, 9.9_ft, 0_deg}}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
   turn(90_deg, 60);
+
 }
 void redAut(){
 
