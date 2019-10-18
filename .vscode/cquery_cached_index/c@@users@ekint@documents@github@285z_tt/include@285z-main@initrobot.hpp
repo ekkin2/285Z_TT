@@ -82,3 +82,4 @@ void intakeSpeed(int x);
 void testAut();
 void redAut();
 void redSimple();
+void blueSimple();
