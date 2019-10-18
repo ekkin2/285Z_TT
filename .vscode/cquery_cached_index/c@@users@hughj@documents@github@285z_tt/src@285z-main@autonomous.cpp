@@ -17,57 +17,74 @@ const bool bwd {true};
  * from where it left off.
  */
 
-void testAut() {
-  //Only generates path, then setTarget makes it move
-  profile.generatePath({initRed, redBall}, "Ball"); //gets ball
-  profile.setTarget("Ball", fwd);
-  profile.waitUntilSettled();
-
-  profile.setTarget("Ball", bwd);
-  profile.waitUntilSettled();
-  profile.removePath("Ball");
-  turn(-48_deg,50);
-}
 
 void redSimple(){
-  //intakeSpeed(400);
-  aut.setMaxVelocity(100);
+  intakeSpeed(400);
   //Move to blocks
+  //mpMove(reblocksFirstSet, redblocksBack, fwd, "Blocks1")
   profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
   profile.removePath("Blocks1");
-  //intakeSpeed(0);
+  intakeSpeed(0);
   //back up
 
-  aut.moveDistance(-500);
-  /*profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  //aut.moveDistance(-300);
+  //mpMove(redblocksBack, redStack, fwd, "ToStack")
+  profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
   profile.setTarget("Back", bwd);
   profile.waitUntilSettled();
-  profile.removePath("Back");*/
 
   intakeSpeed(-5);
   //need to work out deceleration program
   //sqiggle backwards to line up with second row
-  turn(180_deg, 60);
+  pros::Task::delay(200);
+
+  //turn(270_deg, 100);
+  /*profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  profile.setTarget("Back", bwd);
+  profile.waitUntilSettled();*/
 
   aut.setMaxVelocity(150);
   aut.moveDistance(500);
 
-  liftVert();
+  liftVertAut();
   pros::Task::delay(200);
   //Move backwards slowly
   aut.setMaxVelocity(50);
   aut.moveDistance(-100);
 }
 
-void turnTest(){
+void blueSimple(){
+  intakeSpeed(250);
+  mpMove(startBlueTT, blueblocksFirstSet, fwd, "Blocks1");
+  //mpMove(blueblocksFirstSet, blueStack, fwd, "ToStack");
+  pros::Task::delay(1500);
+  mpMove(blueblocksFirstSet, blueblocksBack, bwd, "MoveBack");
+  turn(-135_deg, 60);
+  //aut.moveDistance(2_ft);
+  mpMove(blueblocksBackTurn, blueStack, fwd, "ToStack");
+  intakeSpeed(-5);
+  liftVertAut();
+  intakeSpeed(0);
+  pros::Task::delay(1000);
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-2_ft);
+}
 
-  profile.generatePath({startRedTT, Point{5_ft, 9.9_ft, 0_deg}}, "Blocks1");
-  profile.setTarget("Blocks1", fwd);
-  profile.waitUntilSettled();
+void turnTest(){
+  //regular turn
   turn(90_deg, 60);
 
+  //turn with motion profiling
+  profile.generatePath({redblocksBack, redStack}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
+  profile.removePath("Blocks1");
+}
+
+void mpMoveTest(){
+  mpMove(redblocksFirstSet, redblocksBack, fwd, "Blocks1");
 }
 
 void redAut(){
@@ -147,43 +164,11 @@ void blueAut(){
 
 void liftTest(){
 
-  liftVert();
+  liftVertAut();
 
 }
-//^ included
-  /*
-  profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.5_ft, 8.5_ft, 45_deg}}, "Cap Scrape"); //goes forward to cap to scrape
-  profile.setTarget("Cap Scrape");
-  pros::Task::delay(750);
-  profile.waitUntilSettled();
-  profile.removePath("Cap Scrape");
-
-  // aut.setMaxVelocity(100);
-  profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.8_ft, 8.8_ft, 45_deg}}, "Left Column");
-  profile.setTarget("Left Column", bwd);
-  pros::Task::delay(100);
-  profile.waitUntilSettled();
-//  l.moveAbsolute(0,50); //resets scraper
-  profile.removePath("Left Column");
-  aut.setMaxVelocity(200);
-
-  turn(-43_deg, 50); //turns to face left column
-  turn(-2_deg, 50); //readjusts to go straight
-  profile.generatePath({hpRed, Point{1_ft, 10_ft, 0_deg}}, "Left Low Flag");
-  profile.setTarget("Left Low Flag");
-  profile.waitUntilSettled();
-
-  profile.generatePath({Point{1_ft, 9_ft, 90_deg}, lRed}, "Middle Low Flag P1");
-  profile.setTarget("Middle Low Flag P1", bwd);
-  profile.waitUntilSettled();
-  profile.removePath("Middle Low Flag P1");
-  turn(90_deg, 100);
-
-  profile.generatePath({Point{1_ft, 9_ft, 0_deg}, Point{5.2_ft, 11_ft, 90_deg}}, "Middle Low Flag P2");
-  profile.setTarget("Middle Low Flag P2");
-  profile.waitUntilSettled(); */
 
 
 void autonomous() {
-  redSimple();
+  liftTest();
 }

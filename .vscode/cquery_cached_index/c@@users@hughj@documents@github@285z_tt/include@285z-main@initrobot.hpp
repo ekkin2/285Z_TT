@@ -71,7 +71,7 @@ extern bool number;
 
 //  Auton Drive  //
 void turn  (QAngle degrees, float rpm);
-
+void mpMove(Point start, Point end, bool dir, std::string name);
 //  Angler //
 void liftVertAut();
 
@@ -82,3 +82,5 @@ void intakeSpeed(int x);
 void testAut();
 void redAut();
 void redSimple();
+void blueSimple();
+void liftTest();

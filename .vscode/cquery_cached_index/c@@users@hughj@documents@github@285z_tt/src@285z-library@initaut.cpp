@@ -1,4 +1,5 @@
 #include "285Z-Main/initRobot.hpp"
+#include "285Z-Library/waypoints.hpp"
 
 ChassisControllerIntegrated aut = ChassisControllerFactory::create
 (
@@ -10,9 +11,9 @@ ChassisControllerIntegrated aut = ChassisControllerFactory::create
 
 AsyncMotionProfileController profile = AsyncControllerFactory::motionProfile
 (
-   1.25,
+   1.0,
+   1.0,
    2.0,
-   5.0,
    aut
 );
 
@@ -40,6 +41,13 @@ void intakeSpeed(int x) {
 void liftVertAut(){
   anglerControllerLAut.setTarget(1690);
   anglerControllerRAut.setTarget(1690);
+}
+
+void mpMove(Point start, Point end, bool dir, std::string name){
+  profile.generatePath({start, end}, name);
+  profile.setTarget(name, dir);
+  profile.waitUntilSettled();
+  profile.removePath(name);
 }
 
 void turn (QAngle degrees, float rpm)

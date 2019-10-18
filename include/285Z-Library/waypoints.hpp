@@ -32,5 +32,6 @@ extern Point redPostSquiggle;
 //BLUE ONLY
 extern Point blueblocksFirstSet;
 extern Point blueblocksBack;
+extern Point blueblocksBackTurn;
 extern Point blueStack;
 extern Point bluePostSquiggle;

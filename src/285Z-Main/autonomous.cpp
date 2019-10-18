@@ -21,7 +21,7 @@ const bool bwd {true};
 void redSimple(){
   intakeSpeed(400);
   //Move to blocks
-  //mpMove(redblocksFirstSet, redblocksBack, fwd, "Blocks1")
+  //mpMove(reblocksFirstSet, redblocksBack, fwd, "Blocks1")
   profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
@@ -56,14 +56,20 @@ void redSimple(){
 }
 
 void blueSimple(){
+  intakeSpeed(250);
   mpMove(startBlueTT, blueblocksFirstSet, fwd, "Blocks1");
-  mpMove(blueblocksFirstSet, blueStack, fwd, "ToStack");
+  //mpMove(blueblocksFirstSet, blueStack, fwd, "ToStack");
+  pros::Task::delay(1500);
+  mpMove(blueblocksFirstSet, blueblocksBack, bwd, "MoveBack");
+  turn(-135_deg, 60);
+  //aut.moveDistance(2_ft);
+  mpMove(blueblocksBackTurn, blueStack, fwd, "ToStack");
   intakeSpeed(-5);
   liftVertAut();
   intakeSpeed(0);
   pros::Task::delay(1000);
   aut.setMaxVelocity(50);
-  aut.moveDistance(-400);
+  aut.moveDistance(-2_ft);
 }
 
 void turnTest(){
@@ -164,5 +170,5 @@ void liftTest(){
 
 
 void autonomous() {
-  blueSimple();
+  liftTest();
 }

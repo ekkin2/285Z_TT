@@ -83,3 +83,4 @@ void testAut();
 void redAut();
 void redSimple();
 void blueSimple();
+void liftTest();
