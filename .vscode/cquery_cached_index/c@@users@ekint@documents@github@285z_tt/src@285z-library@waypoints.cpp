@@ -19,11 +19,11 @@ Point startBlueTT{
 //RED POINTS
 
 Point redblocksFirstSet{
-  5_ft, 9.9_ft, 0_deg
+  4_ft, 9.9_ft, 0_deg
 };
 
 Point redblocksBack{
-  3_ft, 9.9_ft, 0_deg
+  2_ft, 9.9_ft, 0_deg
 };
 
 Point redPostSquiggle{
@@ -35,7 +35,7 @@ Point redblocksSecondSet {
 };
 
 Point redStack {
-  2_ft, 10_ft, -45_deg
+  1.8_ft, 9.8_ft, -135_deg
 };
 
 //BLUE POINTS

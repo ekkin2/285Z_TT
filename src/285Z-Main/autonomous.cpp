@@ -28,18 +28,21 @@ void redSimple(){
   intakeSpeed(0);
   //back up
 
-  aut.moveDistance(-300);
-  /*
+  //aut.moveDistance(-300);
+
   profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
   profile.setTarget("Back", bwd);
-  profile.waitUntilSettled();*/
+  profile.waitUntilSettled();
 
   intakeSpeed(-5);
   //need to work out deceleration program
   //sqiggle backwards to line up with second row
   pros::Task::delay(200);
 
-  turn(270_deg, 100);
+  //turn(270_deg, 100);
+  /*profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  profile.setTarget("Back", bwd);
+  profile.waitUntilSettled();*/
 
   aut.setMaxVelocity(150);
   aut.moveDistance(500);
@@ -52,9 +55,15 @@ void redSimple(){
 }
 
 void turnTest(){
+  //regular turn
   turn(90_deg, 60);
-}
 
+  //turn with motion profiling
+  profile.generatePath({redblocksBack, redStack}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
+  profile.removePath("Blocks1");
+}
 void redAut(){
 
   //NOTE: Robot Length = 11"
