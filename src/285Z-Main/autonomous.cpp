@@ -21,7 +21,7 @@ const bool bwd {true};
 void redSimple(){
   intakeSpeed(400);
   //Move to blocks
-  //mpMove(redBlocksFirstSet, redblocksBack, fwd, "Blocks1")
+  //mpMove(redblocksFirstSet, redblocksBack, fwd, "Blocks1")
   profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
@@ -78,7 +78,7 @@ void turnTest(){
 }
 
 void mpMoveTest(){
-  mpMove(redBlocksFirstSet, redblocksBack, fwd, "Blocks1");
+  mpMove(redblocksFirstSet, redblocksBack, fwd, "Blocks1");
 }
 
 void redAut(){
