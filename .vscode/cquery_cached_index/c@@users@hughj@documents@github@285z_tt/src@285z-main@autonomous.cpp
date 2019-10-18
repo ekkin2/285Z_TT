@@ -189,7 +189,11 @@ void autonomous() {
 }
 void hughShelbySimple(){
   intakeSpeed(400);
-  angler1.moveRelative(1690, 50);
-  angler2.moveRelative(1690, 50);
-
+  angler1.moveVelocity(200);
+  angler2.moveVelocity(200);
+  pros::delay(200);
+  angler1.setBrakeMode(AbstractMotor::brakeMode::hold);
+  angler2.setBrakeMode(AbstractMotor::brakeMode::hold);
+  angler1.moveVelocity(0);
+  angler2.moveVelocity(0);
 }
