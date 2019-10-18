@@ -21,6 +21,7 @@ const bool bwd {true};
 void redSimple(){
   intakeSpeed(400);
   //Move to blocks
+  //mpMove(redBlocksFirstSet, redblocksBack, fwd, "Blocks1")
   profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
@@ -29,7 +30,7 @@ void redSimple(){
   //back up
 
   //aut.moveDistance(-300);
-
+  //mpMove(redblocksBack, redStack, fwd, "ToStack")
   profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
   profile.setTarget("Back", bwd);
   profile.waitUntilSettled();
@@ -54,6 +55,17 @@ void redSimple(){
   aut.moveDistance(-100);
 }
 
+void blueSimple(){
+  mpMove(startBlueTT, blueblocksFirstSet, fwd, "Blocks1");
+  mpMove(blueblocksFirstSet, blueStack, fwd, "ToStack");
+  intakeSpeed(-5);
+  liftVertAut();
+  intakeSpeed(0);
+  pros::Task::delay(1000);
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-400);
+}
+
 void turnTest(){
   //regular turn
   turn(90_deg, 60);
@@ -68,6 +80,7 @@ void turnTest(){
 void mpMoveTest(){
   mpMove(redBlocksFirstSet, redblocksBack, fwd, "Blocks1");
 }
+
 void redAut(){
 
   //NOTE: Robot Length = 11"

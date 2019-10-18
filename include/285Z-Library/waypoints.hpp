@@ -28,3 +28,9 @@ extern Point redblocksFirstSet;
 extern Point redblocksBack;
 extern Point redStack;
 extern Point redPostSquiggle;
+
+//BLUE ONLY
+extern Point blueblocksFirstSet;
+extern Point blueblocksBack;
+extern Point blueStack;
+extern Point bluePostSquiggle;
