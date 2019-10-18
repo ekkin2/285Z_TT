@@ -11,9 +11,12 @@ const double liftkI = 0.0001;
 const double liftkD = 0.0001;
 
 //TODO: WILL HAVE TO MODIFY WHEN WE HAVE TWO MOTORS FOR ANGLER
-const int ANGLER_MOTOR_PORT = 7;
+const int ANGLER_MOTOR_PORT_L = 17;
+const int ANGLER_MOTOR_PORT_R = 18;
 
-auto anglerController = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT, liftkP, liftkI, liftkD);
+auto anglerControllerL = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT_L, liftkP, liftkI, liftkD);
+auto anglerControllerR = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT_R, liftkP, liftkI, liftkD);
+
 //This is where we initialize the specific buttons
 ControllerButton btnVert(ControllerDigital::L2); //Make stack vertical
 ControllerButton btnAngle(ControllerDigital::L1); //Make stack angled
@@ -33,7 +36,8 @@ void liftVert() {
   joystick.setText(0, 0, std::to_string(angler1.getPosition()));
   if (btnVert.changedToPressed())
   {
-    anglerController.setTarget(-1690);
+    anglerControllerL.setTarget(1690);
+    anglerControllerR.setTarget(1690);
   }
 }
 
@@ -42,7 +46,8 @@ void lowerFlat(){
   joystick.setText(0, 0, std::to_string(angler1.getPosition()));
   if (btnAngle.changedToPressed())
   {
-    anglerController.setTarget(0);
+    anglerControllerL.setTarget(0);
+    anglerControllerR.setTarget(0);
     //angler1.moveAbsolute(0, 100);
   }
 }
@@ -57,11 +62,12 @@ void intakeToggle ()
     }
     else if(intakeToggleBool)
     {
-      intake.moveVelocity   (600);
+      intake.moveVelocity   (-600);
     }
     else
     {
       intake.moveVelocity	(0);
+      intake.setBrakeMode(AbstractMotor::brakeMode::hold);
     }
 }
 
@@ -69,9 +75,11 @@ void intakeRev()
 {
   if (btnIntakeRev.isPressed())
   {
-    intake.moveVelocity (-100);
+    intake.moveVelocity (100);
   }
 }
+
+
 
 //  DRIVE FUNCTIONS //
 void lazyMode ()

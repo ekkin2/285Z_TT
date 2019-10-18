@@ -10,9 +10,9 @@ ChassisControllerIntegrated aut = ChassisControllerFactory::create
 
 AsyncMotionProfileController profile = AsyncControllerFactory::motionProfile
 (
-   1.25,
+   1.0,
+   1.0,
    2.0,
-   5.0,
    aut
 );
 

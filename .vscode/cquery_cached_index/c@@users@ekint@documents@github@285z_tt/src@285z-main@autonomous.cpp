@@ -17,18 +17,43 @@ const bool bwd {true};
  * from where it left off.
  */
 
-void testAut() {
-  //Only generates path, then setTarget makes it move
-  profile.generatePath({initRed, redBall}, "Ball"); //gets ball
-  profile.setTarget("Ball", fwd);
-  profile.waitUntilSettled();
 
-  profile.setTarget("Ball", bwd);
+void redSimple(){
+  intakeSpeed(400);
+  //Move to blocks
+  profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
-  profile.removePath("Ball");
-  turn(-48_deg,50);
+  profile.removePath("Blocks1");
+  intakeSpeed(0);
+  //back up
+
+  aut.moveDistance(-300);
+  /*
+  profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  profile.setTarget("Back", bwd);
+  profile.waitUntilSettled();*/
+
+  intakeSpeed(-5);
+  //need to work out deceleration program
+  //sqiggle backwards to line up with second row
+  pros::Task::delay(200);
+
+  turn(270_deg, 100);
+
+  aut.setMaxVelocity(150);
+  aut.moveDistance(500);
+
+  liftVertAut();
+  pros::Task::delay(200);
+  //Move backwards slowly
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-100);
 }
 
+void turnTest(){
+  turn(90_deg, 60);
+}
 void redAut(){
 
   //NOTE: Robot Length = 11"
@@ -103,11 +128,6 @@ void blueAut(){
     aut.moveDistance(-100);
 }
 
-void turnTest(){
-
-  turn(135_deg, 50);
-
-}
 
 void liftTest(){
 
@@ -149,5 +169,5 @@ void liftTest(){
 
 
 void autonomous() {
-  redAut();
+  redSimple();
 }
