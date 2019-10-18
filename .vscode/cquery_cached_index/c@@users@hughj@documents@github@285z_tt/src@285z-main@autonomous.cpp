@@ -183,7 +183,10 @@ void liftTest(){
 
 void autonomous() {
   pros::Task::delay(100);
-  blueSimple();
+  hughShelbySimple();
   //driveL.moveRelative(-250, -100);
   //driveR.moveRelative(-250, -100);
+}
+void hughShelbySimple(){
+  intakeSpeed(400);
 }
