@@ -1,15 +1,16 @@
 #include "285Z-Main/initRobot.hpp"
 
-Motor fl           (11, false,  AbstractMotor::gearset::green);
-Motor bl           (12, false,  AbstractMotor::gearset::green);
+Motor fl           (11, true,  AbstractMotor::gearset::green);
+Motor bl           (12, true,  AbstractMotor::gearset::green);
 Motor fr           (13, true,  AbstractMotor::gearset::green);
 Motor br           (14, true,  AbstractMotor::gearset::green);
+
 
 Motor intakeL  (19, true,  AbstractMotor::gearset::green);
 Motor intakeR (16, false, AbstractMotor::gearset::green);
 
-Motor angler1 (17, true, AbstractMotor::gearset::red);
-Motor angler2 (18, false, AbstractMotor::gearset::red);
+Motor angler1 (20, true, AbstractMotor::gearset::red);
+Motor angler2 (15, true, AbstractMotor::gearset::red);
 
 
 ChassisControllerIntegrated drive = ChassisControllerFactory::create
@@ -24,7 +25,7 @@ MotorGroup driveL = MotorGroup({11, 12});
 MotorGroup driveR = MotorGroup({-13, -14});
 
 MotorGroup intake = MotorGroup({19, -16});
-MotorGroup angler = MotorGroup({17, -18});
+MotorGroup angler = MotorGroup({-20, 15});
 // auto scrapePID = AsyncControllerFactory::posPID
 // (
 //   9, scraper,
