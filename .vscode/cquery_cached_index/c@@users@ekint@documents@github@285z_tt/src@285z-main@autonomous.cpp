@@ -164,5 +164,5 @@ void liftTest(){
 
 
 void autonomous() {
-  redSimple();
+  blueSimple();
 }
