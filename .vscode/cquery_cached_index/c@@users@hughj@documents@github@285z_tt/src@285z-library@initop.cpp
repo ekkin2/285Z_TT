@@ -11,8 +11,8 @@ const double liftkI = 0.0001;
 const double liftkD = 0.0001;
 
 //TODO: WILL HAVE TO MODIFY WHEN WE HAVE TWO MOTORS FOR ANGLER
-const int ANGLER_MOTOR_PORT_L = 17;
-const int ANGLER_MOTOR_PORT_R = 18;
+const int ANGLER_MOTOR_PORT_L = 20;
+const int ANGLER_MOTOR_PORT_R = -15;
 
 auto anglerControllerL = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT_L, liftkP, liftkI, liftkD);
 auto anglerControllerR = AsyncControllerFactory::posPID(ANGLER_MOTOR_PORT_R, liftkP, liftkI, liftkD);
@@ -29,6 +29,18 @@ bool driveStyleToggle   {TANK};
 bool intakeToggleBool   {false};
 bool liftUp             {false};
 bool lazy               {false};
+
+void liftVertAngler() {
+  //-1690 degrees
+  //TODO: Change angler1 to angler when there are two motors
+  joystick.setText(0, 0, std::to_string(angler1.getPosition()));
+  if (btnLazyMode.changedToPressed())
+  {
+    joystick.setText(0, 0, "here");
+    angler1.moveRelative(1690, 50);
+    angler2.moveRelative(1690, 50);
+  }
+}
 
 void liftVert() {
   //-1690 degrees

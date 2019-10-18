@@ -3,6 +3,9 @@
 
 const bool fwd {false};
 const bool bwd {true};
+
+const bool slow {false};
+const bool fast {true};
 //true means backwards, false means forwards
 
 /**
@@ -28,6 +31,7 @@ void redSimple(){
   profile.removePath("Blocks1");
   intakeSpeed(0);
   //back up
+
 
   //aut.moveDistance(-300);
   //mpMove(redblocksBack, redStack, fwd, "ToStack")
@@ -56,16 +60,24 @@ void redSimple(){
 }
 
 void blueSimple(){
-  intakeSpeed(250);
-  mpMove(startBlueTT, blueblocksFirstSet, fwd, "Blocks1");
-  //mpMove(blueblocksFirstSet, blueStack, fwd, "ToStack");
-  pros::Task::delay(1500);
-  mpMove(blueblocksFirstSet, blueblocksBack, bwd, "MoveBack");
-  turn(-135_deg, 60);
-  //aut.moveDistance(2_ft);
-  mpMove(blueblocksBackTurn, blueStack, fwd, "ToStack");
+  intakeSpeed(200);
+  aut.moveDistance(1000);
+  mpMove(startBlueTT, blueblocksFirstSet, fwd, slow, "Blocks1");
+  mpMove(blueblocksFirstSet, blueblocksBack, bwd, fast, "MoveBack");
+  pros::Task::delay(1000);
+  intakeSpeed(0);
+
+
+  turn(120_deg, 80);
+
+  driveL.moveRelative(300, 60);
+  driveR.moveRelative(300, 60);
+  //aut.moveDistance(700);
   intakeSpeed(-5);
-  liftVertAut();
+  angler.moveRelative(1690, 60);
+
+  //liftVertAut();
+
   intakeSpeed(0);
   pros::Task::delay(1000);
   aut.setMaxVelocity(50);
@@ -84,7 +96,7 @@ void turnTest(){
 }
 
 void mpMoveTest(){
-  mpMove(redblocksFirstSet, redblocksBack, fwd, "Blocks1");
+  mpMove(redblocksFirstSet, redblocksBack, fwd, slow, "Blocks1");
 }
 
 void redAut(){
@@ -170,5 +182,8 @@ void liftTest(){
 
 
 void autonomous() {
-  liftTest();
+  pros::Task::delay(100);
+  blueSimple();
+  //driveL.moveRelative(-250, -100);
+  //driveR.moveRelative(-250, -100);
 }

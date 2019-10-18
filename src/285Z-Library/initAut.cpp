@@ -9,11 +9,19 @@ ChassisControllerIntegrated aut = ChassisControllerFactory::create
   {4.125_in, 11_in}
 );
 
-AsyncMotionProfileController profile = AsyncControllerFactory::motionProfile
+AsyncMotionProfileController profileSlow = AsyncControllerFactory::motionProfile
 (
-   1.0,
-   1.0,
-   2.0,
+   1.5,
+   1.2,
+   0.9,
+   aut
+);
+
+AsyncMotionProfileController profileFast = AsyncControllerFactory::motionProfile
+(
+   5,
+   2,
+   1.5,
    aut
 );
 
@@ -39,15 +47,27 @@ void intakeSpeed(int x) {
 
 //lift function
 void liftVertAut(){
-  anglerControllerLAut.setTarget(1690);
-  anglerControllerRAut.setTarget(1690);
+  joystick.setText(0, 0, "Inside function");
+  anglerControllerLAut.setTarget(1670);
+  anglerControllerRAut.setTarget(1670);
+  anglerControllerLAut.waitUntilSettled();
+  anglerControllerRAut.waitUntilSettled();
+  joystick.setText(0, 0, "Done");
 }
 
-void mpMove(Point start, Point end, bool dir, std::string name){
-  profile.generatePath({start, end}, name);
-  profile.setTarget(name, dir);
-  profile.waitUntilSettled();
-  profile.removePath(name);
+void mpMove(Point start, Point end, bool dir, bool speed, std::string name){
+  if(!speed){
+    profileSlow.generatePath({start, end}, name);
+    profileSlow.setTarget(name, dir);
+    profileSlow.waitUntilSettled();
+    profileSlow.removePath(name);
+  } else {
+    profileFast.generatePath({start, end}, name);
+    profileFast.setTarget(name, dir);
+    profileFast.waitUntilSettled();
+    profileFast.removePath(name);
+  }
+
 }
 
 void turn (QAngle degrees, float rpm)

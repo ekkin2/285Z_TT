@@ -17,6 +17,8 @@
 #define ONLINE 1
 
 //extern auto anglerController;
+extern Controller joystick;
+
 extern ControllerButton btnLazyMode;
 extern ControllerButton btnVert; //Make stack vertical
 extern ControllerButton btnAngle; //Make stack angled
@@ -57,6 +59,7 @@ void intakeToggle();
 void intakeRev();
 
 void liftVert();
+void liftVertAngler();
 void lowerFlat();
 
 void doArcade ();
@@ -71,7 +74,7 @@ extern bool number;
 
 //  Auton Drive  //
 void turn  (QAngle degrees, float rpm);
-void mpMove(Point start, Point end, bool dir, std::string name);
+void mpMove(Point start, Point end, bool dir, bool speed, std::string name);
 //  Angler //
 void liftVertAut();
 
@@ -79,6 +82,7 @@ void liftVertAut();
 void intakeSpeed(int x);
 
 // Autons //
+//void autonomous();
 void testAut();
 void redAut();
 void redSimple();

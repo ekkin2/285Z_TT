@@ -41,11 +41,11 @@ Point redStack {
 //BLUE POINTS
 
 Point blueblocksFirstSet{
-  7_ft, 9.9_ft, 180_deg
+  7.5_ft, 9.9_ft, 180_deg
 };
 
 Point blueblocksBack{
-  5.5_ft, 9.9_ft, 180_deg
+  10_ft, 9.9_ft, 180_deg
 };
 
 Point blueblocksBackTurn{
@@ -61,5 +61,5 @@ Point blueblocksSecondSet {
 };
 
 Point blueStack {
-  9.8_ft, 9.8_ft, -45_deg
+  10.2_ft, 10.2_ft, -45_deg
 };
