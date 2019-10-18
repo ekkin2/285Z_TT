@@ -3,6 +3,9 @@
 
 const bool fwd {false};
 const bool bwd {true};
+
+const bool slow {false};
+const bool fast {true};
 //true means backwards, false means forwards
 
 /**
@@ -17,16 +20,83 @@ const bool bwd {true};
  * from where it left off.
  */
 
-void testAut() {
-  //Only generates path, then setTarget makes it move
-  profile.generatePath({initRed, redBall}, "Ball"); //gets ball
-  profile.setTarget("Ball", fwd);
+
+void redSimple(){
+  intakeSpeed(400);
+  //Move to blocks
+  //mpMove(reblocksFirstSet, redblocksBack, fwd, "Blocks1")
+  profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
+  profile.waitUntilSettled();
+  profile.removePath("Blocks1");
+  intakeSpeed(0);
+  //back up
+
+
+  //aut.moveDistance(-300);
+  //mpMove(redblocksBack, redStack, fwd, "ToStack")
+  profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  profile.setTarget("Back", bwd);
   profile.waitUntilSettled();
 
-  profile.setTarget("Ball", bwd);
+  intakeSpeed(-5);
+  //need to work out deceleration program
+  //sqiggle backwards to line up with second row
+  pros::Task::delay(200);
+
+  //turn(270_deg, 100);
+  /*profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
+  profile.setTarget("Back", bwd);
+  profile.waitUntilSettled();*/
+
+  aut.setMaxVelocity(150);
+  aut.moveDistance(500);
+
+  liftVertAut();
+  pros::Task::delay(200);
+  //Move backwards slowly
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-100);
+}
+
+void blueSimple(){
+  intakeSpeed(200);
+  aut.moveDistance(1000);
+  mpMove(startBlueTT, blueblocksFirstSet, fwd, slow, "Blocks1");
+  mpMove(blueblocksFirstSet, blueblocksBack, bwd, fast, "MoveBack");
+  pros::Task::delay(1000);
+  intakeSpeed(0);
+
+
+  turn(120_deg, 80);
+
+  driveL.moveRelative(300, 60);
+  driveR.moveRelative(300, 60);
+  //aut.moveDistance(700);
+  intakeSpeed(-5);
+  angler.moveRelative(1690, 60);
+
+  //liftVertAut();
+
+  intakeSpeed(0);
+  pros::Task::delay(1000);
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-2_ft);
+}
+
+void turnTest(){
+  //regular turn
+  turn(90_deg, 60);
+
+  //turn with motion profiling
+  profile.generatePath({redblocksBack, redStack}, "Blocks1");
+  profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
-  profile.removePath("Ball");
-  turn(-48_deg,50);
+  profile.removePath("Blocks1");
+}
+
+void mpMoveTest(){
+  mpMove(redblocksFirstSet, redblocksBack, fwd, slow, "Blocks1");
 }
 
 void redAut(){
@@ -36,23 +106,30 @@ void redAut(){
 
   //Intake On
   intakeSpeed(400);
+  aut.setMaxVelocity(150);
   //Move to blocks
-  profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
+  profile.generatePath({startRedTT, Point{5_ft, 9.9_ft, 0_deg}}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
+
   //need to work out deceleration program
   //sqiggle backwards to line up with second row
-  profile.generatePath({Point{4_ft, 9.9_ft, 0_deg}, Point{1_ft, 5.9_ft, 0_deg}}, "squiggle");
+  turn(30_deg, 60);
+  aut.moveDistance(-1300);
+  //turn(-15_deg, 60);
+  /*
+  profile.generatePath({Point{4.5_ft, 9.9_ft, 0_deg}, Point{1.5_ft, 4_ft, 0_deg}}, "squiggle");
   profile.setTarget("squiggle", bwd);
   profile.waitUntilSettled();
+  */
   //intake second batch of blocks
-  profile.generatePath({ Point{1_ft, 5.9_ft, 0_deg}, Point{4_ft, 5.9_ft, 0_deg}}, "Blocks2");
+  profile.generatePath({ Point{1.5_ft, 4_ft, 0_deg}, Point{4_ft, 4_ft, 0_deg}}, "Blocks2");
   profile.setTarget("Blocks2", fwd);
   profile.waitUntilSettled();
   //turn towards goal
   turn(135_deg, 50);
   //go towards goal
-  profile.generatePath({ Point{1_ft, 5.9_ft, -45_deg}, Point{2_ft, 10_ft, -45_deg}}, "GoToStack");
+  profile.generatePath({ Point{4_ft, 4_ft, -45_deg}, Point{2_ft, 10_ft, -45_deg}}, "GoToStack");
   profile.setTarget("GoToStack", fwd);
   profile.waitUntilSettled();
   //Raise lift upwards
@@ -71,76 +148,42 @@ void blueAut(){
     //Intake On
     intakeSpeed(400);
     //Move to blocks
-    profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
+    profile.generatePath({startBlueTT, Point{8_ft, 9.9_ft, 180_deg}}, "Blocks1");
     profile.setTarget("Blocks1", fwd);
     profile.waitUntilSettled();
     //need to work out deceleration program
     //sqiggle backwards to line up with second row
-    profile.generatePath({redblocksFirstSet, postSquiggle}, "squiggle");
+    profile.generatePath({Point{8_ft, 9.9_ft, 180_deg}, Point{1_ft, 5.9_ft, 180_deg}}, "squiggle");
     profile.setTarget("squiggle", bwd);
     profile.waitUntilSettled();
     //intake second batch of blocks
-    profile.generatePath({postSquiggle, pickUpSecondStack}, "Blocks2");
+    profile.generatePath({ Point{1_ft, 5.9_ft, 180_deg}, Point{8_ft, 5.9_ft, 180_deg}}, "Blocks2");
     profile.setTarget("Blocks2", fwd);
     profile.waitUntilSettled();
     //turn towards goal
-    turn(135_deg, 50);
+    turn(-135_deg, 50);
     //go towards goal
-    profile.generatePath({pickUpSecondStack, maybeGoBack}, "GoToStack");
+    profile.generatePath({ Point{8_ft, 5.9_ft, -45_deg}, Point{10_ft, 10_ft, -45_deg}}, "GoToStack");
     profile.setTarget("GoToStack", fwd);
     profile.waitUntilSettled();
     //Raise lift upwards
-    liftVert();
+    liftVertAut();
     //Move backwards slowly
     aut.setMaxVelocity(50);
     aut.moveDistance(-100);
 }
 
-void turnTest(){
-
-  turn(135_deg, 50);
-
-}
 
 void liftTest(){
 
-  liftVert();
+  liftVertAut();
 
 }
-//^ included
-  /*
-  profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.5_ft, 8.5_ft, 45_deg}}, "Cap Scrape"); //goes forward to cap to scrape
-  profile.setTarget("Cap Scrape");
-  pros::Task::delay(750);
-  profile.waitUntilSettled();
-  profile.removePath("Cap Scrape");
-
-  // aut.setMaxVelocity(100);
-  profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.8_ft, 8.8_ft, 45_deg}}, "Left Column");
-  profile.setTarget("Left Column", bwd);
-  pros::Task::delay(100);
-  profile.waitUntilSettled();
-//  l.moveAbsolute(0,50); //resets scraper
-  profile.removePath("Left Column");
-  aut.setMaxVelocity(200);
-
-  turn(-43_deg, 50); //turns to face left column
-  turn(-2_deg, 50); //readjusts to go straight
-  profile.generatePath({hpRed, Point{1_ft, 10_ft, 0_deg}}, "Left Low Flag");
-  profile.setTarget("Left Low Flag");
-  profile.waitUntilSettled();
-
-  profile.generatePath({Point{1_ft, 9_ft, 90_deg}, lRed}, "Middle Low Flag P1");
-  profile.setTarget("Middle Low Flag P1", bwd);
-  profile.waitUntilSettled();
-  profile.removePath("Middle Low Flag P1");
-  turn(90_deg, 100);
-
-  profile.generatePath({Point{1_ft, 9_ft, 0_deg}, Point{5.2_ft, 11_ft, 90_deg}}, "Middle Low Flag P2");
-  profile.setTarget("Middle Low Flag P2");
-  profile.waitUntilSettled(); */
 
 
 void autonomous() {
-  redAut();
+  pros::Task::delay(100);
+  blueSimple();
+  //driveL.moveRelative(-250, -100);
+  //driveR.moveRelative(-250, -100);
 }
