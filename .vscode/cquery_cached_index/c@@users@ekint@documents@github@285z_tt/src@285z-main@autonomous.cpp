@@ -21,6 +21,7 @@ const bool bwd {true};
 void redSimple(){
   intakeSpeed(400);
   //Move to blocks
+  //mpMove(redblocksFirstSet, redblocksBack, fwd, "Blocks1")
   profile.generatePath({startRedTT, redblocksFirstSet}, "Blocks1");
   profile.setTarget("Blocks1", fwd);
   profile.waitUntilSettled();
@@ -29,7 +30,7 @@ void redSimple(){
   //back up
 
   //aut.moveDistance(-300);
-
+  //mpMove(redblocksBack, redStack, fwd, "ToStack")
   profile.generatePath({redblocksFirstSet, redblocksBack}, "Back");
   profile.setTarget("Back", bwd);
   profile.waitUntilSettled();
@@ -54,6 +55,17 @@ void redSimple(){
   aut.moveDistance(-100);
 }
 
+void blueSimple(){
+  mpMove(startBlueTT, blueblocksFirstSet, fwd, "Blocks1");
+  mpMove(blueblocksFirstSet, blueStack, fwd, "ToStack");
+  intakeSpeed(-5);
+  liftVertAut();
+  intakeSpeed(0);
+  pros::Task::delay(1000);
+  aut.setMaxVelocity(50);
+  aut.moveDistance(-400);
+}
+
 void turnTest(){
   //regular turn
   turn(90_deg, 60);
@@ -64,6 +76,11 @@ void turnTest(){
   profile.waitUntilSettled();
   profile.removePath("Blocks1");
 }
+
+void mpMoveTest(){
+  mpMove(redblocksFirstSet, redblocksBack, fwd, "Blocks1");
+}
+
 void redAut(){
 
   //NOTE: Robot Length = 11"
@@ -144,38 +161,6 @@ void liftTest(){
   liftVertAut();
 
 }
-//^ included
-  /*
-  profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.5_ft, 8.5_ft, 45_deg}}, "Cap Scrape"); //goes forward to cap to scrape
-  profile.setTarget("Cap Scrape");
-  pros::Task::delay(750);
-  profile.waitUntilSettled();
-  profile.removePath("Cap Scrape");
-
-  // aut.setMaxVelocity(100);
-  profile.generatePath({Point{1_ft, 7_ft, 45_deg}, Point{2.8_ft, 8.8_ft, 45_deg}}, "Left Column");
-  profile.setTarget("Left Column", bwd);
-  pros::Task::delay(100);
-  profile.waitUntilSettled();
-//  l.moveAbsolute(0,50); //resets scraper
-  profile.removePath("Left Column");
-  aut.setMaxVelocity(200);
-
-  turn(-43_deg, 50); //turns to face left column
-  turn(-2_deg, 50); //readjusts to go straight
-  profile.generatePath({hpRed, Point{1_ft, 10_ft, 0_deg}}, "Left Low Flag");
-  profile.setTarget("Left Low Flag");
-  profile.waitUntilSettled();
-
-  profile.generatePath({Point{1_ft, 9_ft, 90_deg}, lRed}, "Middle Low Flag P1");
-  profile.setTarget("Middle Low Flag P1", bwd);
-  profile.waitUntilSettled();
-  profile.removePath("Middle Low Flag P1");
-  turn(90_deg, 100);
-
-  profile.generatePath({Point{1_ft, 9_ft, 0_deg}, Point{5.2_ft, 11_ft, 90_deg}}, "Middle Low Flag P2");
-  profile.setTarget("Middle Low Flag P2");
-  profile.waitUntilSettled(); */
 
 
 void autonomous() {
