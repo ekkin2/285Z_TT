@@ -41,17 +41,17 @@ Point redStack {
 //BLUE POINTS
 
 Point blueblocksFirstSet{
-  4.5_ft, 9.9_ft, 0_deg
+  4.5_ft, 9.9_ft, 180_deg
 };
 
 Point bluePostSquiggle{
-  1.5_ft, 4_ft, 0_deg
+  1.5_ft, 4_ft, 180_deg
 };
 
 Point blueblocksSecondSet {
-  4_ft, 4_ft, 0_deg
+  4_ft, 4_ft, 180_deg
 };
 
 Point blueStack {
-  2_ft, 10_ft, -45_deg
+  9.8_ft, 9.8_ft, -45_deg
 };

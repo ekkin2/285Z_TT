@@ -64,6 +64,10 @@ void turnTest(){
   profile.waitUntilSettled();
   profile.removePath("Blocks1");
 }
+
+void mpMoveTest(){
+  mpMove(redBlocksFirstSet, redblocksBack, fwd, "Blocks1");
+}
 void redAut(){
 
   //NOTE: Robot Length = 11"
