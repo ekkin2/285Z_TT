@@ -131,7 +131,7 @@ void blueAut(){
 
 void liftTest(){
 
-  liftVert();
+  liftVertAut();
 
 }
 //^ included
