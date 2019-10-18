@@ -189,4 +189,7 @@ void autonomous() {
 }
 void hughShelbySimple(){
   intakeSpeed(400);
+  angler1.moveRelative(1690, 50);
+  angler2.moveRelative(1690, 50);
+
 }
