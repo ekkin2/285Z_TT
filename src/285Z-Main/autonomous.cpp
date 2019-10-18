@@ -54,6 +54,7 @@ void redSimple(){
 void turnTest(){
   turn(90_deg, 60);
 }
+
 void redAut(){
 
   //NOTE: Robot Length = 11"
