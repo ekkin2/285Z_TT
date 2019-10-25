@@ -56,7 +56,7 @@ void lazyMode ();
 void intakeToggle();
 void intakeRev();
 
-void liftVert();
+void liftVertical();
 void lowerFlat();
 
 void doArcade ();
@@ -73,7 +73,7 @@ extern bool number;
 void turn  (QAngle degrees, float rpm);
 
 //  Angler //
-void liftVert();
+void liftVertical();
 
 // Intakes //
 void intakeSpeed(int x);

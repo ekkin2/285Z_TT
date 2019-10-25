@@ -24,7 +24,7 @@ MotorGroup driveL = MotorGroup({11, 12});
 MotorGroup driveR = MotorGroup({-13, -14});
 
 MotorGroup intake = MotorGroup({19, -16});
-MotorGroup angler = MotorGroup({17, -18});
+MotorGroup angler = MotorGroup({17, -20});
 // auto scrapePID = AsyncControllerFactory::posPID
 // (
 //   9, scraper,
