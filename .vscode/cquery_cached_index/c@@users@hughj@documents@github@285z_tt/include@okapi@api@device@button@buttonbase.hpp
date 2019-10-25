@@ -1,4 +1,4 @@
-/**
+/*
  * @author Ryan Benasutti, WPI
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
@@ -12,6 +12,10 @@
 namespace okapi {
 class ButtonBase : public AbstractButton {
   public:
+  /**
+   * @param iinverted Whether the button is inverted (`true` meaning default pressed and `false`
+   * meaning default not pressed).
+   */
   explicit ButtonBase(bool iinverted = false);
 
   /**
@@ -31,7 +35,7 @@ class ButtonBase : public AbstractButton {
   bool changedToPressed() override;
 
   /**
-   * Return whether the state of the button to not pressed since the last time this method was
+   * Return whether the state of the button changed to not pressed since the last time this method was
    *called.
    **/
   bool changedToReleased() override;
