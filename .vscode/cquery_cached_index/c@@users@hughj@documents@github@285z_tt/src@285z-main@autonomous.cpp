@@ -24,5 +24,8 @@ void liftTest(){
 };
 
 void autonomous() {
+intakeSpeed(200);
 liftTest();
+pros::delay(200);
+intakeSpeed(0);
 }
