@@ -38,7 +38,7 @@ void intakeSpeed(int x) {
 };
 
 //lift function
-void liftVert(){
+void liftVertAut(){
   anglerControllerL.setTarget(1690);
   anglerControllerR.setTarget(1690);
 }

@@ -56,7 +56,8 @@ void lazyMode ();
 void intakeToggle();
 void intakeRev();
 
-void liftVert();
+void liftVertAut();
+void liftVertOp();
 void lowerFlat();
 
 void doArcade ();
