@@ -24,5 +24,5 @@ void liftTest(){
 };
 
 void autonomous() {
-  redAut();
+liftTest();
 }
