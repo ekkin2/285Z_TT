@@ -32,7 +32,7 @@ void intakeSpeed(int x) {
 //lift function
 void liftVert(){
   angler.moveVelocity(100);
-}
+};
 
 void turn (QAngle degrees, float rpm)
 {
@@ -41,4 +41,4 @@ void turn (QAngle degrees, float rpm)
   aut.turnAngle(degrees);
 
   aut.setMaxVelocity(200);
-}
+};
