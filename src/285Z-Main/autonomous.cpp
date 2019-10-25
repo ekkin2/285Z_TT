@@ -17,28 +17,12 @@ const bool bwd {true};
  * from where it left off.
  */
 
-void testAut() {
-  //Only generates path, then setTarget makes it move
-  profile.generatePath({initRed, redBall}, "Ball"); //gets ball
-  profile.setTarget("Ball", fwd);
-  profile.waitUntilSettled();
-
-  profile.setTarget("Ball", bwd);
-  profile.waitUntilSettled();
-  profile.removePath("Ball");
-  turn(-48_deg,50);
-}
-void turnTest()
-{
-  turn(135_deg, 50);
-
-}
 
 void liftTest(){
-
   liftVert();
-  delay(200);
-}
+  pros::delay(200);
+};
+
 void autonomous() {
   redAut();
 }

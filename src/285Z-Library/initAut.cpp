@@ -19,7 +19,6 @@ AsyncMotionProfileController profile = AsyncControllerFactory::motionProfile
 //TODO: WILL HAVE TO MODIFY WHEN WE HAVE TWO MOTORS FOR ANGLER
 const int AnglerMotor = 18;
 
-
 //intake function for autonomous
 //intakeSpeed(integer speed value)
 void intakeSpeed(int x) {
@@ -38,6 +37,9 @@ void anglerSpeed(int x) {
 //lift function
 void liftVert(){
   angler.moveVelocity(100);
+  pros::delay(200);
+  angler.moveVelocity(0);
+  angler.setBrakeMode(AbstractMotor::brakeMode::hold);
 };
 
 void turn (QAngle degrees, float rpm)
