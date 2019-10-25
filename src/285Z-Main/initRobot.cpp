@@ -9,7 +9,6 @@ Motor intakeL  (19, true,  AbstractMotor::gearset::green);
 Motor intakeR (16, false, AbstractMotor::gearset::green);
 
 Motor angler1 (17, true, AbstractMotor::gearset::red);
-Motor angler2 (18, false, AbstractMotor::gearset::red);
 
 
 ChassisControllerIntegrated drive = ChassisControllerFactory::create
@@ -25,10 +24,3 @@ MotorGroup driveR = MotorGroup({-13, -14});
 
 MotorGroup intake = MotorGroup({19, -16});
 MotorGroup angler = MotorGroup({17, -18});
-// auto scrapePID = AsyncControllerFactory::posPID
-// (
-//   9, scraper,
-//   0.001, //kP
-//   0.0,   //kI
-//   0.0001 //kD
-// );

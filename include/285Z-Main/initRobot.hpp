@@ -39,7 +39,6 @@ extern Motor intakeL;
 extern Motor intakeR;
 
 extern Motor angler1;
-extern Motor angler2;
 
 extern MotorGroup intake;
 extern MotorGroup angler;
