@@ -29,6 +29,12 @@ void intakeSpeed(int x) {
   }
 };
 
+void anglerSpeed(int x) {
+  intake.moveVelocity(x*-1);
+  if(x == 0){
+    intake.setBrakeMode(AbstractMotor::brakeMode::hold);
+  }
+};
 //lift function
 void liftVert(){
   angler.moveVelocity(100);
