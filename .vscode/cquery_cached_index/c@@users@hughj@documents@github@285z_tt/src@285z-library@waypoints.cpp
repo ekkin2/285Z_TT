@@ -3,6 +3,7 @@
 //Put specific points definitions here
 
 /////////// Initial Points //////////
+/*
 Point initRed
 {
   1.0_ft,
@@ -151,3 +152,4 @@ Point pickUpSecondStack{
    10_ft,
    -45_deg
  };
+*/

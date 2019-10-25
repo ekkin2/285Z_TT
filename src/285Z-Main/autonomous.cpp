@@ -1,11 +1,11 @@
 #include "285Z-Main/initRobot.hpp"
 #include "285Z-Library/waypoints.hpp"
-
+/*
 const bool fwd {false};
 const bool bwd {true};
 //true means backwards, false means forwards
 
-/**
+/*
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
  * the Field Management System or the VEX Competition Switch in the autonomous
@@ -16,7 +16,7 @@ const bool bwd {true};
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-
+/*
 void testAut() {
   //Only generates path, then setTarget makes it move
   profile.generatePath({initRed, redBall}, "Ball"); //gets ball
@@ -112,3 +112,4 @@ void liftTest(){
 void autonomous() {
   liftTest();
 }
+*/

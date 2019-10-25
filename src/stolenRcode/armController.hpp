@@ -1,6 +1,5 @@
 #pragma once
 #include "main.h"
-/*
 extern bool armToggle;
 
 class ArmController
@@ -32,4 +31,3 @@ public:
   void run();
   static void taskFnc(void*);
 };
-*/
