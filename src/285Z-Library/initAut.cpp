@@ -15,8 +15,6 @@ AsyncMotionProfileController profile = AsyncControllerFactory::motionProfile
    5.0,
    aut
 );
-const int anglerPort = 20;
-
 //intake function for autonomous
 //intakeSpeed(integer speed value)
 void intakeSpeed(int x) {
@@ -28,9 +26,7 @@ void intakeSpeed(int x) {
 
 //lift function
 void liftVertical(){
-  angler.moveVelocity(100);
-  pros::delay(300);
-  angler.moveVelocity(0);
+ pros::delay(300);
 }
 
 void turn (QAngle degrees, float rpm)

@@ -9,7 +9,9 @@ void liftTest(){
   liftVertical();
 }
 
-
+void testAut(){
+  
+}
 void autonomous() {
   liftTest();
 }

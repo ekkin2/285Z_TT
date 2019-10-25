@@ -8,9 +8,7 @@ Motor br           (14, true,  AbstractMotor::gearset::green);
 Motor intakeL  (19, true,  AbstractMotor::gearset::green);
 Motor intakeR (16, false, AbstractMotor::gearset::green);
 
-Motor angler1 (17, true, AbstractMotor::gearset::red);
-Motor angler2 (18, false, AbstractMotor::gearset::red);
-
+Motor soloAngler (17, true, AbstractMotor::gearset::red);
 
 ChassisControllerIntegrated drive = ChassisControllerFactory::create
 (
@@ -20,11 +18,12 @@ ChassisControllerIntegrated drive = ChassisControllerFactory::create
   {4_in, 10_in}
 );
 
+
 MotorGroup driveL = MotorGroup({11, 12});
 MotorGroup driveR = MotorGroup({-13, -14});
 
 MotorGroup intake = MotorGroup({19, -16});
-MotorGroup angler = MotorGroup({17, -20});
+
 // auto scrapePID = AsyncControllerFactory::posPID
 // (
 //   9, scraper,
