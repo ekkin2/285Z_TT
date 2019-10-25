@@ -1,5 +1,5 @@
 #include "armController.hpp"
-
+/*
 bool armToggle = false;
 
 ArmController::ArmController(int iarm) :
@@ -24,7 +24,7 @@ void ArmController::run()
 {
   arm->setGearing(okapi::AbstractMotor::gearset::red);
   while(true)
-  {    
+  {
     if(!disabled)
     {
       switch(armState)
@@ -70,3 +70,4 @@ void ArmController::taskFnc(void* input)
   ArmController* that = static_cast<ArmController*>(input);
   that->run();
 }
+*/

@@ -1,5 +1,5 @@
 #include "trayController.hpp"
-
+/*
 TrayController::TrayController(int iangler, double ifinnese) :
 angler(new okapi::Motor(iangler)), finnese(ifinnese), task(taskFnc, this, "Tray Controller") {
 }
@@ -24,7 +24,7 @@ void TrayController::run()
   while(true)
   {
     // angler->setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
-    
+
     if(!disabled)
     {
       switch(trayState)
@@ -82,3 +82,4 @@ void TrayController::taskFnc(void* input)
   TrayController* that = static_cast<TrayController*>(input);
   that->run();
 }
+*/

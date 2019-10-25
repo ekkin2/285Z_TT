@@ -1,5 +1,5 @@
 #include "devices.hpp"
-
+/*
 bool onFire {false};
 
 okapi::ControllerButton intakeButton = okapi::ControllerDigital::R2;
@@ -29,7 +29,7 @@ void disabled() {}
 
 void competition_initialize() {}
 
-void autonomous() 
+void autonomous()
 {
 	std::shared_ptr<okapi::OdomChassisController> chassis = okapi::ChassisControllerBuilder()
 										.withMotors({ -1, -3 }, { 2, 4 })
@@ -42,7 +42,7 @@ void autonomous()
 	// auto profile = okapi::AsyncMotionProfileControllerBuilder().withOutput(model, scales, okapi::AbstractMotor::GearsetRatioPair(okapi::AbstractMotor::gearset::green));
 
 
-	tray.setState(TrayController::trayStates::armup);	
+	tray.setState(TrayController::trayStates::armup);
 	lift.moveAbsolute(640, 80);
 	pros::delay(2000);
 	tray.setState(TrayController::trayStates::armdown);
@@ -88,7 +88,7 @@ void opcontrol()
 	std::shared_ptr<okapi::ChassisModel> model = std::dynamic_pointer_cast<okapi::ChassisModel>(chassis->getModel());
 
 
-	
+
 	// arm.arm->tarePosition();
 
 	while(1)
@@ -101,18 +101,18 @@ void opcontrol()
 		else
 			model->tank(controller.getAnalog(okapi::ControllerAnalog::rightY),
 						controller.getAnalog(okapi::ControllerAnalog::leftY));
-		
+
 
 		if(trayButton.changedToPressed())
 		{
 			if(trayToggle)
 				tray.setState(TrayController::trayStates::down);
 			else
-				tray.setState(TrayController::trayStates::up);	
+				tray.setState(TrayController::trayStates::up);
 		}
 		else if(liftButton.changedToPressed())
 		{
-			tray.setState(TrayController::trayStates::armup);	
+			tray.setState(TrayController::trayStates::armup);
 			lift.moveAbsolute(640, 80);
 			pros::delay(2000);
 			tray.setState(TrayController::trayStates::armdown);
@@ -124,7 +124,7 @@ void opcontrol()
 			// }
 			// else
 			// {
-			// 	tray.setState(TrayController::trayStates::armup);	
+			// 	tray.setState(TrayController::trayStates::armup);
 			// 	arm.setState(ArmController::armStates::up);
 			// }
 		}
@@ -151,3 +151,4 @@ void opcontrol()
 	}
 
 }
+*/
