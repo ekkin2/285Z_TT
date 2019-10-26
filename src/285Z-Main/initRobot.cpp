@@ -5,7 +5,10 @@ Motor backLeft = 12;
 Motor frontRight = 13;
 Motor backRight = 14;
 
-Motor intakeRight = 19;
+Motor intakeRight = 16;
+Motor intakeLeft = 19;
+
+Motor anglerCenter = 20;
 
 
 //old code
