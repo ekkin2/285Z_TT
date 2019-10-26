@@ -1,5 +1,5 @@
 #include "285Z-Main/initRobot.hpp"
-/*
+
 void opcontrol() {
 
 
@@ -18,4 +18,3 @@ void opcontrol() {
 		pros::delay(10);
 	}
 }
-*/

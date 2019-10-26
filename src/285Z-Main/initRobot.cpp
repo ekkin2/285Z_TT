@@ -1,5 +1,14 @@
 #include "285Z-Main/initRobot.hpp"
+//new code
+Motor frontLeft = 11;
+Motor backLeft = 12;
+Motor frontRight = 13;
+Motor backRight = 14;
 
+Motor intakeRight = 19;
+
+
+//old code
 Motor fl           (11, true,  AbstractMotor::gearset::green);
 Motor bl           (12, true,  AbstractMotor::gearset::green);
 Motor fr           (13, true,  AbstractMotor::gearset::green);
