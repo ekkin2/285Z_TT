@@ -56,7 +56,7 @@ void lazyMode ();
 void intakeToggle();
 void intakeRev();
 
-
+void liftVert();
 void lowerFlat();
 
 void doArcade ();
@@ -68,13 +68,12 @@ void lControlTask (void*);
 // Autonomous Declarations //
 
 extern bool number;
-void liftVertAut();
-void liftVertOp();
+
 //  Auton Drive  //
 void turn  (QAngle degrees, float rpm);
 
 //  Angler //
-
+void liftVert();
 
 // Intakes //
 void intakeSpeed(int x);

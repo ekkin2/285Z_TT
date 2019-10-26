@@ -9,7 +9,7 @@ void opcontrol() {
 		driveStyle(TANK);
 
 		//  ANGLER FUNCTIONS //
-		liftVertOp();
+		liftVert();
 		lowerFlat();
 
 		// INTAKE FUNCTIONS //
