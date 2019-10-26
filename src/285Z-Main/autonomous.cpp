@@ -16,7 +16,6 @@ const bool bwd {true};
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-/*
 void testAut() {
   //Only generates path, then setTarget makes it move
   profile.generatePath({initRed, redBall}, "Ball"); //gets ball
@@ -112,4 +111,3 @@ void liftTest(){
 void autonomous() {
   liftTest();
 }
-*/

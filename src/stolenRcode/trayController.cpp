@@ -1,5 +1,5 @@
 #include "trayController.hpp"
-/*
+
 TrayController::TrayController(int iangler, double ifinnese) :
 angler(new okapi::Motor(iangler)), finnese(ifinnese), task(taskFnc, this, "Tray Controller") {
 }
@@ -82,4 +82,3 @@ void TrayController::taskFnc(void* input)
   TrayController* that = static_cast<TrayController*>(input);
   that->run();
 }
-*/

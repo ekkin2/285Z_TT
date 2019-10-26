@@ -1,5 +1,5 @@
 #include "devices.hpp"
-/*
+
 bool onFire {false};
 
 okapi::ControllerButton intakeButton = okapi::ControllerDigital::R2;
@@ -151,4 +151,3 @@ void opcontrol()
 	}
 
 }
-*/
