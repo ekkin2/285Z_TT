@@ -14,16 +14,30 @@ Motor intakeLeft(19);
 
 //solo angler motor
 Motor anglerCenter(20);
+okapi::ChassisScales scales
+{
+	{4.125_in, 11.5_in},
+	imev5GreenTPR
+};
 
-okapi::ChassisScales scales{4_in, 11.5_in};
 
 std::shared_ptr<okapi::OdomChassisController> chassis = okapi::ChassisControllerBuilder()
-      .withMotors({ 11, 12 }, { -13, 14 })
+      .withMotors({ frontLeft, backLeft }, { frontRight, backRight })
       .withGearset(okapi::AbstractMotor::gearset::green)
       .withDimensions(scales)
       .withOdometry(okapi::StateMode::FRAME_TRANSFORMATION, 0_mm, 0_deg, 0.0001_mps)
       .buildOdometry();
 std::shared_ptr<okapi::ChassisModel> model = std::dynamic_pointer_cast<okapi::ChassisModel>(chassis->getModel());
+//builds the chasis for odom with the dimensons from
+  //scales
+//defines gearset (green)
+//defines the Odom
+//starts the odom function
+
+
+
+
+//old code
 auto driveTrain = ChassisControllerFactory::create(
   -11, 1,
   AbstractMotor::gearset::green,

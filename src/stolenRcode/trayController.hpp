@@ -1,6 +1,6 @@
 #pragma once
 #include "main.h"
-/*
+
 extern bool trayToggle;
 
 class TrayController
@@ -35,4 +35,3 @@ public:
   void run();
   static void taskFnc(void*);
 };
-*/
