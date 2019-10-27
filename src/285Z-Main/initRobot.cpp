@@ -1,28 +1,27 @@
 #include "285Z-Main/initRobot.hpp"
 //new code
-Motor frontLeft = 11;
-Motor backLeft = 12;
-Motor frontRight = 13;
-Motor backRight = 14;
 
-Motor intakeRight = 16;
-Motor intakeLeft = 19;
+//motors for the drivetrain
+//could be incorrect
+Motor frontLeft(11);
+Motor backLeft(12);
+Motor frontRight(13);
+Motor backRight(14);
 
-Motor anglerCenter = 20;
+//motors for the intake. (looking from the front)
+Motor intakeRight(16);
+Motor intakeLeft(19);
 
+//solo angler motor
+Motor anglerCenter(20);
+
+auto driveTrain = ChassisControllerFactory::create(
+  -11, 1,
+  AbstractMotor::gearset::green,
+  {4_in, 10_in}
+);
 
 //old code
-Motor fl           (11, true,  AbstractMotor::gearset::green);
-Motor bl           (12, true,  AbstractMotor::gearset::green);
-Motor fr           (13, true,  AbstractMotor::gearset::green);
-Motor br           (14, true,  AbstractMotor::gearset::green);
-
-Motor intakeL  (19, true,  AbstractMotor::gearset::green);
-Motor intakeR (16, false, AbstractMotor::gearset::green);
-
-Motor angler1 (20, true, AbstractMotor::gearset::red);
-Motor angler2 (15, true, AbstractMotor::gearset::red);
-
 
 ChassisControllerIntegrated drive = ChassisControllerFactory::create
 (
