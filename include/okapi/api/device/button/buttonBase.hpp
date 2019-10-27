@@ -35,7 +35,7 @@ class ButtonBase : public AbstractButton {
   bool changedToPressed() override;
 
   /**
-   * Return whether the state of the button changed to not pressed since the last time this method was
+   * Return whether the state of the button to not pressed since the last time this method was
    *called.
    **/
   bool changedToReleased() override;
