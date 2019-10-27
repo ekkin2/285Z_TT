@@ -1,12 +1,15 @@
 #include "285Z-Main/initRobot.hpp"
 
+Controller joystickController;
+
 okapi::ControllerButton buttonIntakeToggle = okapi::ControllerDigital::R2;
 okapi::ControllerButton buttonTrayToggle = okapi::ControllerDigital::L1;
 okapi::ControllerButton buttonOuttakeWP = okapi::ControllerDigital::R1;
 okapi::ControllerButton buttonLiftToggle = okapi::ControllerDigital::L2;
 
-model->tank(controller.getAnalog(okapi::ControllerAnalog::rightY),
-      controller.getAnalog(okapi::ControllerAnalog::leftY));
+drive.tank(masterController.getAnalog(ControllerAnalog::leftY),
+           masterController.getAnalog(ControllerAnalog::rightY));
+
 
 
 
