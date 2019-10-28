@@ -1,9 +1,11 @@
 #include "285Z-Main/initRobot.hpp"
 //new code
-okapi::ControllerButton intakeButton = okapi::ControllerDigital::R2;
-okapi::ControllerButton trayButton = okapi::ControllerDigital::L1;
-okapi::ControllerButton outtakeButton = okapi::ControllerDigital::R1;
-okapi::ControllerButton liftButton = okapi::ControllerDigital::L2;
+okapi::ControllerButton intakeToggleButton = okapi::ControllerDigital::R2;
+okapi::ControllerButton trayToggleButton = okapi::ControllerDigital::L1;
+okapi::ControllerButton outtakeHoldButton = okapi::ControllerDigital::R1;
+okapi::ControllerButton liftToggleButton = okapi::ControllerDigital::L2;
+
+
 //motors for the drivetrain
 //could be incorrect
 Motor frontLeft(11);
@@ -13,7 +15,10 @@ Motor backRight(-14);
 
 //motors for the intake. (looking from the front)
 Motor intakeRight(16);
-Motor intakeLeft(19);
+Motor intakeLeft(-19);
+//motor group for intake
+MotorGroup intake(intakeRight, intakeLeft);
+
 
 //solo angler motor
 Motor anglerCenter(20);
